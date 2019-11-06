@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $HOME
+
 # Get light
 wget https://github.com/haikarainen/light/releases/download/v1.2/light-1.2.tar.gz
 
@@ -15,4 +17,6 @@ cd .light/
 sudo make install
 
 # Add the user to ideo group
-usermod -aG video $USER
+sudo usermod -aG video $USERi
+
+echo 'Please reboot the computer.'

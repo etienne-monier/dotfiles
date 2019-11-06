@@ -15,6 +15,13 @@ set $shift Ctrl
 exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/UbuntuDesert.png
 
 ###############################
+#        Racourcis            #
+###############################
+
+bindsym XF86MonBrightnessDown exec 'light -U 10'
+bindsym XF86MonBrightnessUp exec 'light -A 10'
+
+###############################
 #        WORKSPACES           #
 ###############################
 
