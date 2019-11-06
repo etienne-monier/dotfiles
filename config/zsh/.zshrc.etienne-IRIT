@@ -1,0 +1,49 @@
+#
+# Config specific to etienne-IRIT
+#
+#
+
+# Printing conf
+alias lp='lp -o media=A4 -d laseri2eme-color -o fit-to-page -o Duplex=DuplexNoTumble' 
+
+## PATH
+##
+
+## Path modification
+export PATH=$PATH:$HOME/.matlab2017/bin/            # Add Matlab to the path
+export PATH=$PATH:$HOME/.mycodes/                   # Add personal bash codes
+export PATH=$PATH:$HOME/ownCloud/github/PyXport/    # Add plotdat
+export PATH=$PATH:/opt/sublime_text/
+
+## Python Path modification
+export PYTHONPATH="$PYTHONPATH:/home/etienne/.mypython3"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pystem-dev"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pyxport"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/Unmixing"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/PyModules"
+
+
+## pyenv conf
+##
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+export PYTHONIOENCODING="utf-8"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    if [ -z ${PROFILE_LOADED} ]; then
+        export PROFILE_LOADED=true
+        eval "$(pyenv virtualenv-init -)"
+        eval "$(pyenv init -)"
+    fi
+fi
+
+## Latex conf
+##
+
+if [ -d ~/.texmf ] ; then
+    export TEXMFHOME=~/.texmf
+fi
+
+export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"

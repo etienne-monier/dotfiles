@@ -1,0 +1,159 @@
+
+
+##
+##
+## BASE CONFIG
+##
+##
+
+###############################
+#          APPARENCE          #
+###############################
+
+# Focus la fenêtre au survol
+focus_follows_mouse yes
+
+# Police à utiliser
+font pango:Monaco 8
+
+exec --no-startup-id gnome-settings-daemon
+
+###############################
+#         KEYBINDING          #
+###############################
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+$shift+a kill
+
+# Rofi comme lanceur d'application
+bindsym $mod+d exec rofi -show drun
+
+# Changement du focus 
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+m focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Déplacement des fenêtres 
+bindsym $mod+$shift+j move left
+bindsym $mod+$shift+k move down
+bindsym $mod+$shift+l move up
+bindsym $mod+$shift+m move right
+bindsym $mod+$shift+Left move left
+bindsym $mod+$shift+Down move down
+bindsym $mod+$shift+Up move up
+bindsym $mod+$shift+Right move right
+
+# Changement du mode de split 
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Permet de changer de mode
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+$shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+q focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Rechargement / Actualisation de la configuration
+bindsym $mod+$shift+c reload
+bindsym $mod+$shift+r restart
+
+# Quitter i3
+bindsym $mod+$shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Lock screen
+bindsym $mod+$shift+x exec ~/.config/i3/lock.sh
+
+# Audio
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+
+# Capture d'écran
+bindsym Print exec xfce4-screenshooter
+
+###############################
+#        WORKSPACES           #
+###############################
+
+# Force certaines apps à des wokspaces dédiés (use xprop | grep WM_CLASS)
+# Workspace 1 (Web)
+assign [class="Firefox"] $ws1
+# Workspace 2 (Mail|Slack)
+assign [class="Thunderbird|Slack"] $ws2
+# Workspace 3 (Code)
+# assign [class="Sublime_text"] $ws3
+
+###############################
+#            MISC             #
+###############################
+
+# Application au démarage
+exec --no-startup-id compton
+exec --no-startup-id firefox
+exec --no-startup-id thunderbird
+exec --no-startup-id slack
+# exec --no-startup-id sublime_text
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id xautolock -time 5 -corners -0-0 -locker '~/.config/i3/lock.sh'
+exec --no-startup-id owncloud
+exec_always --no-startup-id nm-applet
+
+# I3 Gaps
+for_window [class=".*"] title_format " %title"
+gaps inner 10
+smart_gaps on
+smart_borders on
+for_window [class="Bar"] gaps outer 0
+# gaps bottom 30
+
+bar {
+    i3bar_command $HOME/.config/polybar/launch.sh
+    height 30
+}

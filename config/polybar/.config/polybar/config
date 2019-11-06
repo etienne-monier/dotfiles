@@ -1,0 +1,720 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Colors
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+power= ${colors.alert}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Bar definition
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[global/wm]
+
+; Removes margin around bar
+margin-top = 0
+margin-bottom = 0
+
+[bar/default]
+
+; Locale used to localize various module data (e.g. date)
+locale = fr_FR.UTF-8
+
+; Tell the Window Manager not to configure the window.
+; Use this to detach the bar if your WM is locking its size/position.
+override-redirect = false
+
+;;
+;; Position, margin and padding
+;;
+
+; The bar should be at the bottom of the screen
+bottom = true
+
+; Number of spaces to add at the beginning/end of the bar
+padding = 2
+
+; Number of spaces to add before/after each module
+module-margin = 2
+
+;;
+;; Appearance
+;;
+
+; Dimension defined as pixel value (e.g. 35) or percentage (e.g. 50%)
+width = 100%
+height = 30
+
+radius = 0
+
+; The border width and color
+border-size = 0
+border-color = #00000000
+
+; Under-/overline pixel size and argb color
+line-size = 3
+line-color = #f00
+
+; Prefer fixed center position for the `modules-center` block
+; When false, the center position will be based on the size of the other blocks.
+fixed-center = true
+
+
+;;
+;; Misc
+;;
+
+; Enable support for inter-process messaging
+enable-ipc = false
+
+
+;;
+;; Color
+;;
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+
+;;
+;; Fonts
+;;
+
+font-0 = System San Francisco Display:size=10;2
+font-1 = Hack Nerd Font:style=Regular:size=11;2
+
+;;
+;; Default modules
+;;
+
+modules-left = bspwm i3
+modules-center = mpd
+modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+
+[bar/left]
+inherit = bar/default
+monitor = DP-1 
+bottom = true
+modules-left = i3
+modules-center = date
+modules-right = cpu memory temperature powermenu
+
+[bar/right]
+inherit = bar/default
+monitor = DVI-I-1
+bottom = true
+tray-position = left
+modules-left = tray-position = right pulseaudio 
+modules-center = 
+modules-right = xkeyboard 
+padding-left = 3
+
+[bar/bottom]
+inherit = bar/default
+bottom = true
+
+tray-position = right
+tray-detached = false
+
+modules-left = i3
+modules-center = date
+modules-right = network cpu memory temperature pulseaudio battery powermenu
+
+[bar/mainlaptop]
+inherit = bar/bottom
+monitor = LVDS-1
+
+[bar/smalllaptop]
+inherit = bar/bottom
+monitor = eDP-1
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Modules
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;
+; This module show the title of the currently focused window.
+;;;;;;;;
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+
+;;;;;;;;
+; This module shows the current layout and active indicators.
+;;;;;;;;
+
+[module/xkeyboard]
+
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
+
+label-layout = %layout%
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+
+;;;;;;;;
+; This module shows information about mounted filesystems.
+;;;;;;;;
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+
+;;;;;;;;
+; This module uses the bspwm ipc client to display information 
+;  about available monitors, desktops and layout states.
+;;;;;;;;
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+
+;;;;;;;;
+; This module uses the i3 ipc to display information about workspaces and active mode.
+;;;;;;;;
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+; Separator in between workspaces
+; label-separator = |
+
+
+;;;;;;;;
+; This module shows information related to MPD (Music Player Daemon).
+;;;;;;;;
+
+;[module/mpd]
+;type = internal/mpd
+;format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+;icon-prev = 
+;icon-stop = 
+;icon-play = 
+;icon-pause = 
+;icon-next = 
+
+;label-song-maxlen = 25
+;label-song-ellipsis = true
+
+
+;;;;;;;;
+; This module shows information about the defined output's backlight level.
+;;;;;;;;
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #fff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+
+;;;;;;;;
+; 
+;;;;;;;;
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+
+;;;;;;;;
+; This module shows information about the current CPU load.
+;;;;;;;;
+
+[module/cpu]
+
+type = internal/cpu
+interval = 2
+
+; color
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label> <ramp-coreload>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+format-prefix = 
+label =  %percentage%%
+
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+
+;;;;;;;;
+; This module shows information about the current memory usage.
+;;;;;;;;
+
+[module/memory]
+
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 2
+
+; Color
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+
+; Format
+format-prefix = 
+label =  %percentage_used%%
+
+
+;;;;;;;;
+; 
+;;;;;;;;
+
+[module/network]
+type = internal/network
+interface = enp0s25
+
+interval = 3.0
+ping-interval = 10
+
+;; Format
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-connected-underline = #4bffdc
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+; Default: %ifname% %local_ip%
+label-connected = %local_ip%  %downspeed%  %upspeed%
+;label-connected-foreground = #4bffdc
+
+; Default: (none)
+label-disconnected = not connected
+label-disconnected-foreground = #66ffffff
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 1
+ramp-signal-1 = 2
+ramp-signal-2 = 3
+ramp-signal-3 = 4
+ramp-signal-4 = 5
+ramp-signal-5 = 6
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+
+
+
+;;;;;;;;
+; This module shows information about the current date.
+;;;;;;;;
+
+[module/date]
+type = internal/date
+; type = custom/script
+; exec = ~/.config/polybar/scripts/date/date.sh
+
+; Seconds to sleep between updates
+interval = 5
+
+
+
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %A %d %B %Y
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+;date-alt = " %d-%m-%Y"
+;time-alt = %H:%M:%S
+
+; Color
+;format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+
+; Format
+
+; Available tags:
+;   <label> (default)
+;format-prefix = 
+format = <label>
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label =  %date%   %time%
+
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/scripts/popup-calendar/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/popup-calendar/popup-calendar.sh --popup
+
+;;;;;;;;
+; This module shows volume and mute state for Pulseaudio. It uses the 
+;  specified sink in the config if available, and uses the default sink
+;  if it is not available or provided.
+;;;;;;;;
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.usb-Dell_Dell_AC511_USB_SoundBar-00.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = false
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 2
+
+; Color
+format-volume-underline = ${colors.primary}
+
+
+; Format
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume>   <label-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted =  muted
+label-muted-foreground = #666
+
+; This tells the bar to use Roboto when rendering the label
+label-active-font = 6
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 =
+
+;;;;;;;;
+; This module opens rofi.
+;;;;;;;;
+
+
+;[module/rofi]
+;type = custom/script
+;exec = echo ""
+;click-left = rofi -modi run,drun,window -show drun
+;format-padding = 1
+
+;;;;;;;;
+; This module shows volume and mute state for ALSA mixers.
+;;;;;;;;
+
+[module/alsa]
+type = internal/alsa
+
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = ""
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = sound muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+;;;;;;;;
+; This module shows information about the battery.
+;;;;;;;;
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+; format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 =  
+animation-charging-1 =  
+animation-charging-2 =  
+animation-charging-3 =  
+animation-charging-4 =  
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate = 750
+
+
+;;;;;;;;
+; This module shows the information about the current temperature.
+;;;;;;;;
+
+[module/temperature]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 60
+
+; Color
+label-warn-foreground = ${colors.secondary}
+format-underline = #f50a4d
+
+; Format
+
+; Whether or not to show units next to the temperature tokens (°C, °F)
+; Default: true
+units = true
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+format = <label>
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label =  %temperature-c%
+
+label-warn = TEMP %temperature-c%
+
+; Requires the <ramp> tag
+; The icon selection will range from 0 to `warn-temperature`
+; with the current temperature as index.
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-foreground = #55
+
+
+;;;;;;;;
+; Defines the power menu.
+;;;;;;;;
+
+[module/powermenu]
+type = custom/menu
+label-active-font = 1
+format-spacing = 1
+label-open = 
+label-open-foreground = ${colors.power}
+label-close = 
+label-close-foreground = ${colors.power}
+label-separator = |
+label-separator-foreground = ${colors.secondary}
+
+menu-0-0 = reboot
+menu-0-0-foreground = ${colors.foreground}
+menu-0-0-exec = reboot
+menu-0-1 = power off
+menu-0-1-foreground = ${colors.foreground}
+menu-0-1-exec = poweroff
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Misc
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+
+; vim:ft=dosini

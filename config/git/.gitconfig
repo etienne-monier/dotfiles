@@ -1,0 +1,5 @@
+[user]
+	name = etienne
+	email = etienne.monier@enseeiht.fr
+[core]
+	editor = vim

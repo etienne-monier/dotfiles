@@ -1,0 +1,27 @@
+
+[
+  // Open sidebar with F1
+  {
+    "keys": ["f1"],
+    "command": "dired",
+    "args": {
+      "immediate": true,
+      "single_pane": true,
+      "other_group": "left",
+      "project": true
+    },
+  },
+
+  // To close the sidebar when chosen the file
+  // {
+  //   "keys": ["enter"],
+  //   "command": "dired_select", "args": {"and_close": true},
+  //   "context": [
+  //     { "key": "selector", "operator": "equal", "operand": "text.dired" },
+  //     { "key": "setting.dired_rename_mode", "operand": false }
+  //   ]
+  // },
+
+  // For trailing space delete
+  { "keys": ["ctrl+shift+t"], "command": "delete_trailing_spaces" }
+]
