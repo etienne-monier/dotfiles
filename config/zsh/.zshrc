@@ -52,6 +52,8 @@ source $HOME/.oh-my-zsh/plugins/z/z.sh
 ## Plugin config
 ##
 
+POWERLEVEL9K_MODE="nerdfont-complete"
+
 # OS icon segment
 POWERLEVEL9K_CUSTOM_UBUNTU_ICON="echo -e '\uf31b'"
 POWERLEVEL9K_CUSTOM_UBUNTU_ICON_BACKGROUND=234
@@ -72,6 +74,8 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=39
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=232
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=39
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=232
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_first_and_last"
 
 # Background job segment
 POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=232
@@ -125,13 +129,13 @@ export LANG=fr_FR.UTF-8
 export TERM='xterm-256color'
 
 # History configuration
-HISTSIZE=3000			# Nb de lignes en mémoire
-HISTFILE=~/.zsh_history		# Fichier de sauvegarde
-SAVEHIST=3000			# Nb d'entrées à enregistrer
-HISTDUP=erase			# Suppression des doublons
-setopt	appendhistory		# Ajout des entrées en mode append
-setopt	sharehistory		# Partage de l'historique entre les terminaux
-setopt	incappendhistory	# Ajout immédiat de l'historique (pas à la fermeture)
+HISTSIZE=3000     # Nb de lignes en mémoire
+HISTFILE=~/.zsh_history   # Fichier de sauvegarde
+SAVEHIST=3000     # Nb d'entrées à enregistrer
+HISTDUP=erase     # Suppression des doublons
+setopt  appendhistory   # Ajout des entrées en mode append
+setopt  sharehistory    # Partage de l'historique entre les terminaux
+setopt  incappendhistory  # Ajout immédiat de l'historique (pas à la fermeture)
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -166,48 +170,52 @@ alias egrep='egrep --color=auto'
 alias ipython='ipython3 --profile=dev'
 alias ipython3='ipython3 --profile=dev'
 
+#
+# Config specific to etienne-IRIT
+#
+#
+
 # Printing conf
 alias lp='lp -o media=A4 -d laseri2eme-color -o fit-to-page -o Duplex=DuplexNoTumble' 
-
-
-
 
 ## PATH
 ##
 
+## Path modification
+export PATH=$PATH:$HOME/.matlab2017/bin/            # Add Matlab to the path
+export PATH=$PATH:$HOME/.mycodes/                   # Add personal bash codes
+export PATH=$PATH:$HOME/ownCloud/github/PyXport/    # Add plotdat
+export PATH=$PATH:/opt/sublime_text/
+
+## Python Path modification
+export PYTHONPATH="$PYTHONPATH:/home/etienne/.mypython3"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pystem-dev"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pyxport"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/Unmixing"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/PyModules"
 
 
-if [ `hostname` = 'etienne-IRIT' ]; then
-
-    ## Path modification
-    export PATH=$PATH:$HOME/.matlab2017/bin/	        # Add Matlab to the path
-    export PATH=$PATH:$HOME/.mycodes/			        # Add personal bash codes
-    export PATH=$PATH:$HOME/ownCloud/github/PyXport/	# Add plotdat
-    export PATH=$PATH:/opt/sublime_text/
-    
-    ## Python Path modification
-    export PYTHONPATH="$PYTHONPATH:/home/etienne/.mypython3"
-    export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pystem"
-    export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pyxport"
-    export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/Unmixing"
-    export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/PyModules"
-fi
-
-## Python conf
+## pyenv conf
 ##
-
-
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-# fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 export PYTHONIOENCODING="utf-8"
 
-if [ -z ${PROFILE_LOADED} ]; then
-    export PROFILE_LOADED=true
-    eval "$(pyenv virtualenv-init -)"
-    eval "$(pyenv init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+    if [ -z ${PROFILE_LOADED} ]; then
+        export PROFILE_LOADED=true
+        eval "$(pyenv virtualenv-init -)"
+        eval "$(pyenv init -)"
+    fi
 fi
+
+## Latex conf
+##
+
+if [ -d ~/.texmf ] ; then
+    export TEXMFHOME=~/.texmf
+fi
+
+export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"

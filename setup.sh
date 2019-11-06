@@ -4,6 +4,10 @@
 git submodule init
 git submodule update
 
+# Ensure all .sh are executable
+#
+find . -name "*.sh" -exec chmod +x {} \;
+
 # Generate the correct files to stow.
 #
 HOSTNAME=`hostname`
