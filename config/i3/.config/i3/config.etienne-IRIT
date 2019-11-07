@@ -12,7 +12,7 @@ set $shift Ctrl
 ###############################
 
 # Fond d'écran
-exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/Montagnes.jpg
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/Forest.jpg
 
 ###############################
 #         KEYBINDING          #

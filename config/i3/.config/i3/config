@@ -12,7 +12,7 @@ set $shift Ctrl
 ###############################
 
 # Fond d'écran
-exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/Montagnes.jpg
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/Forest.jpg
 
 ###############################
 #         KEYBINDING          #
@@ -78,6 +78,7 @@ bindsym $mod+Ctrl+Mod2+KP_7 move container to workspace $ws7
 bindsym $mod+Ctrl+Mod2+KP_8 move container to workspace $ws8
 bindsym $mod+Ctrl+Mod2+KP_9 move container to workspace $ws9
 bindsym $mod+Ctrl+Mod2+KP_Decimal move container to workspace $ws10
+
 
 ##
 ##
