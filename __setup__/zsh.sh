@@ -60,10 +60,10 @@ fc-cache -f -v
 fc-list | grep 'Hack' >> /dev/null 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Hack Nerd Font successfully installed ... ${NC}"
-    HACHINST='OK'
+    HACKINST='OK'
 else
     echo -e "${RED}Hack Nerd Font installation failed ... ${NC}"
-    HACHINST='NO'
+    HACKINST='NO'
 fi
 
 ## ls en couleur
@@ -72,13 +72,9 @@ fi
 
 
 ## Logout and login to take into account
-if [ "$HACKINST" == 'OK' ]; then
+if [ "$HACKINST" = 'OK' ]; then
     echo -e "${GREEN}Installation was successful. Please logout and login to take installation into account.${NC}"
 else
     echo -e "${RED}Installation failed. Hack Neired Font installation failed.${NC}"
 fi
-
-
-
-
 

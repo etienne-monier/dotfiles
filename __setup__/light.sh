@@ -17,6 +17,6 @@ cd .light/
 sudo make install
 
 # Add the user to ideo group
-sudo usermod -aG video $USERi
+sudo usermod -aG video $USER
 
 echo 'Please reboot the computer.'
