@@ -1,6 +1,6 @@
 ##
 ##
-## CONFIG SPECIFIC TO WORK LAPTOP
+## CONFIG SPECIFIC TO LARGE LAPTOP
 ##
 ##
 
@@ -12,7 +12,7 @@ set $shift Ctrl
 ###############################
 
 # Fond d'écran
-exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/Montagnes.jpg
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/UbuntuBird.jpg
 
 ###############################
 #         KEYBINDING          #
@@ -37,20 +37,19 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-set $monitorLeft DP-1
-set $monitorRight DVI-I-1
+set $monitor LVDS-1
 
 # Ecran associé à chaque Workspace
-workspace $ws1 output $monitorLeft
-workspace $ws2 output $monitorRight
-workspace $ws3 output $monitorLeft
-workspace $ws4 output $monitorRight
-workspace $ws5 output $monitorLeft
-workspace $ws6 output $monitorRight
-workspace $ws7 output $monitorLeft
-workspace $ws8 output $monitorRight
-workspace $ws9 output $monitorLeft
-workspace $ws10 output $monitorRight
+workspace $ws1 output $monitor
+workspace $ws2 output $monitor
+workspace $ws3 output $monitor
+workspace $ws4 output $monitor
+workspace $ws5 output $monitor
+workspace $ws6 output $monitor
+workspace $ws7 output $monitor
+workspace $ws8 output $monitor
+workspace $ws9 output $monitor
+workspace $ws10 output $monitor
 
 # switch to workspace
 bindsym $mod+Mod2+KP_1 workspace $ws1
@@ -78,6 +77,7 @@ bindsym $mod+Ctrl+Mod2+KP_7 move container to workspace $ws7
 bindsym $mod+Ctrl+Mod2+KP_8 move container to workspace $ws8
 bindsym $mod+Ctrl+Mod2+KP_9 move container to workspace $ws9
 bindsym $mod+Ctrl+Mod2+KP_Decimal move container to workspace $ws10
+
 
 ##
 ##

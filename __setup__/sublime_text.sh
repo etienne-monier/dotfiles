@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! command -v sublime_text >/dev/null 2>&1 ]
+#if [ ! command -v sublime_text >/dev/null 2>&1 ]; then
 
   ## Install Sublime-text-3 (cf ubuntu doc)
   wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -13,7 +13,7 @@ if [ ! command -v sublime_text >/dev/null 2>&1 ]
   sudo apt-get update
   sudo apt-get install sublime-text
 
-fi
+#fi
 
 ## Re-launch .zshrc for PATH location and launch sublime_text for config file init.
 source $HOME/.zshrc

@@ -170,20 +170,19 @@ alias egrep='egrep --color=auto'
 alias ipython='ipython3 --profile=dev'
 alias ipython3='ipython3 --profile=dev'
 
-#
-# Config specific to etienne-IRIT
-#
-#
+alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 
-# Printing conf
-alias lp='lp -o media=A4 -d laseri2eme-color -o fit-to-page -o Duplex=DuplexNoTumble' 
+#
+# Config specific to etienne-UX32VD
+#
+#
 
 ## PATH
 ##
 
 ## Path modification
-export PATH=$PATH:$HOME/.matlab2017/bin/            # Add Matlab to the path
-export PATH=$PATH:$HOME/.mycodes/                   # Add personal bash codes
+# export PATH=$PATH:$HOME/.matlab2017/bin/            # Add Matlab to the path
+# export PATH=$PATH:$HOME/.mycodes/                   # Add personal bash codes
 export PATH=$PATH:$HOME/ownCloud/github/PyXport/    # Add plotdat
 export PATH=$PATH:/opt/sublime_text/
 
@@ -210,12 +209,3 @@ if command -v pyenv 1>/dev/null 2>&1; then
         eval "$(pyenv init -)"
     fi
 fi
-
-## Latex conf
-##
-
-if [ -d ~/.texmf ] ; then
-    export TEXMFHOME=~/.texmf
-fi
-
-export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"
