@@ -19,18 +19,5 @@
 
 set -o nounset                                  # Treat unset variables as an error
 
-## Install i3wm
-sudo apt-get install i3
-
-## Install compton
-sudo apt-get install compton
-
-## Install misc
-sudo apt-get install xfce4-screenshooter xautolock
-
-## Install rofi
-sudo apt-get install rofi
-
-## Install feh for background
-sudo apt-get install feh
-
+## Install i3wm, compton, misc, rofi and feh
+sudo apt-get -y install i3 compton xfce4-screenshooter xautolock rofi feh
