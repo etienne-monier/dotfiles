@@ -170,3 +170,5 @@ alias egrep='egrep --color=auto'
 alias ipython='ipython3 --profile=dev'
 alias ipython3='ipython3 --profile=dev'
 
+alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
+
