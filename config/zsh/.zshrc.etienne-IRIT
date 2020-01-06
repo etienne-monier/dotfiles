@@ -17,10 +17,21 @@ export PATH=$PATH:/opt/sublime_text/
 
 ## Python Path modification
 export PYTHONPATH="$PYTHONPATH:/home/etienne/.mypython3"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pystem"
 export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pystem-dev"
 export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pyxport"
 export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/Unmixing"
 export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/PyModules"
+
+
+## Latex conf
+##
+
+if [ -d ~/.texmf ] ; then
+    export TEXMFHOME=~/.texmf
+fi
+
+export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"
 
 
 ## pyenv conf
@@ -39,11 +50,3 @@ if command -v pyenv 1>/dev/null 2>&1; then
     fi
 fi
 
-## Latex conf
-##
-
-if [ -d ~/.texmf ] ; then
-    export TEXMFHOME=~/.texmf
-fi
-
-export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"

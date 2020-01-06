@@ -90,7 +90,7 @@
 	// "all"       to show a phantom for each math environment
 	// "selected"  to show a phantom only for the currently selected math environment
 	// "none"      to disable math live preview
-	"preview_math_mode": "selected",
+	"preview_math_mode": "all",
 
 	// Change the scope selectors to preview math
 	// E.g. set it to "text.tex.latex meta.environment.math.block.be"
@@ -200,7 +200,7 @@
 
 	"osx": 	{
 		// Path used when invoking tex & friends; MUST include $PATH
-		"texpath" : "$PATH:/Library/TeX/texbin:/usr/texbin:/usr/local/bin:/opt/local/bin"
+		"texpath" : "$PATH:/Library/TeX/texbin:/usr/texbin:/usr/local/bin:/opt/local/bin",
 		// Path to PDF viewer, if needed
 		// TODO think about it. Also, maybe configure it here!
 	},
@@ -226,7 +226,7 @@
 
 	"linux" : {
 		// Path used when invoking tex & friends; MUST include $PATH
-		"texpath" : "$PATH:/usr/texbin",
+		"texpath" : "$PATH",
 		// Command to invoke Python. Useful if you have Python installed in a
 		// non-standard location or want to use a particular version of python.
 		// Both Python2 and Python3 are supported, but must have the DBus bindings
@@ -234,7 +234,7 @@
 		"python": "",
 		// The name of the ST2 or ST3 executable. On Ubuntu, both subl and sublime-text are
 		// available for ST2; adjust as needed for other platforms, and for ST3
-		"sublime": "sublime-text",
+		"sublime": "sublime_text",
 		// How long to wait after evince or okular has launched before sending a sync message
 		// in seconds, floating point; choose 2.0 or 3.0 on a slower machine, 0.5 on a fast one
 		// Note: only tweak this if sync after launching the PDF viewer does not seem to work,
@@ -249,6 +249,7 @@
 		// adjusted depending on your machine and configuration.
 		"keep_focus_delay": 0.5
 	},
+	"texpath" : "$PATH",
 
 // ------------------------------------------------------------------
 // Output Directory settings settings

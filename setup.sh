@@ -45,7 +45,8 @@ stowit() {
     # -v verbose
     # -R restow
     # -t target
-    stow --verbose=1 -R -t ${usr} -d "config" ${app}
+    # --no-folding to prevent tree folding
+    stow -v -R --no-folding -t ${usr} -d "config" ${app}
 }
 
 echo ""
