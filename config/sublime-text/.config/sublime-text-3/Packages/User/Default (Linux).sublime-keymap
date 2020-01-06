@@ -23,5 +23,9 @@
   // },
 
   // For trailing space delete
-  { "keys": ["ctrl+shift+t"], "command": "delete_trailing_spaces" }
+  { "keys": ["ctrl+shift+t"], "command": "delete_trailing_spaces" },
+
+  // SublimePeek
+  { "keys": ["ctrl+shift+h"], "command": "sublime_peek" }
+
 ]

@@ -10,6 +10,7 @@
 		"LaTeX-cwl",
 		"Package Control",
 		"Restructured Text (RST) Snippets",
-		"SublimeLinter-chktex"
+		"SublimeLinter-chktex",
+		"SublimePeek"
 	]
 }

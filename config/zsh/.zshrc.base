@@ -5,6 +5,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/etienne/.oh-my-zsh"
 
+# Font mode
+POWERLEVEL9K_MODE="awesome-fontconfig"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -52,8 +55,6 @@ source $HOME/.oh-my-zsh/plugins/z/z.sh
 ## Plugin config
 ##
 
-POWERLEVEL9K_MODE="nerdfont-complete"
-
 # OS icon segment
 POWERLEVEL9K_CUSTOM_UBUNTU_ICON="echo -e '\uf31b'"
 POWERLEVEL9K_CUSTOM_UBUNTU_ICON_BACKGROUND=234
@@ -93,8 +94,11 @@ POWERLEVEL9K_TIME_FOREGROUND=232
 
 # Multiline prompt
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="\n\u256d\u2500 "
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u2570\uf460 "
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="\n\u256d\u2500 "
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\u2570\uf460 "
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="\n "
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" \uf101 "
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX_FOREGROUND=196
 
 # Pyenv segment
 
@@ -108,14 +112,14 @@ POWERLEVEL9K_VIRTUALENV_FOREGROUND=232
 # Left segments
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   # SSH connection
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_ubuntu_icon ssh context root_indicator dir vcsi virtualenv)
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_ubuntu_icon ssh context root_indicator dir vcs virtualenv)
 else
   # No SSH connection
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_ubuntu_icon root_indicator dir vcs virtualenv)
 fi
 
 # Right segments
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs battery time)
 
 
 ##
