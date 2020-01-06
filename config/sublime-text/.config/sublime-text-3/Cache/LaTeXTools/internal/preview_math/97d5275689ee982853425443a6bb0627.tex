@@ -1,0 +1,20 @@
+
+\documentclass[preview,border=0.3pt]{standalone}
+% import xcolor if available and not already present
+\IfFileExists{xcolor.sty}{\usepackage{xcolor}}{}%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\IfFileExists{latexsym.sty}{\usepackage{latexsym}}{}
+\IfFileExists{mathtools.sty}{\usepackage{mathtools}}{}
+
+\begin{document}
+% set the foreground color
+\IfFileExists{xcolor.sty}{\color[HTML]{CCCCCC}}{}%
+\begin{equation*}
+[\mathrm{prox}_{g}(\X)]_j = 
+    \begin{cases}
+        0&\text{if}\ ||\X_j||_2 < \lambda\\
+        \left(1-\frac{\lambda}{||\X_j||_2}\right)\X_j&\text{otherwise}\\
+    \end{cases}\label{}
+\end{equation*}
+\end{document}

@@ -1,0 +1,19 @@
+
+\documentclass[preview,border=0.3pt]{standalone}
+% import xcolor if available and not already present
+\IfFileExists{xcolor.sty}{\usepackage{xcolor}}{}%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\IfFileExists{latexsym.sty}{\usepackage{latexsym}}{}
+\IfFileExists{mathtools.sty}{\usepackage{mathtools}}{}
+\usepackage{/home/etienne/ownCloud/Articles et conférences/Articles/2019.08 Ultramicroscopy/2-review-reponse/style/Notation}
+\begin{document}
+% set the foreground color
+\IfFileExists{xcolor.sty}{\color[HTML]{CCCCCC}}{}%
+\begin{align*}
+p_L(\mathbf{y}) &= \arg\min_\mathbf{x}\left\{ g(\mathbf{x}) + \frac{L}{2}||\mathbf{x} - \left( \underbrace{\mathbf{y} - \frac{1}{L} \nabla f(\mathbf{y})}_{\mathbf{z}} \right)||^2 \right\}\\
+%
+&=\arg\min_\mathbf{x}\left\{ g(\mathbf{x}) + \frac{L}{2}||\mathbf{x} - \mathbf{z}||^2
+&=\arg\min_\mathbf{x}L\left\{ \fracg(\mathbf{x}) + \frac{L}{2}||\mathbf{x} - \mathbf{z}||^2
+\end{align*}
+\end{document}

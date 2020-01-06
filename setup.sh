@@ -45,7 +45,7 @@ stowit() {
     # -v verbose
     # -R restow
     # -t target
-    stow -v -R -t ${usr} -d "config" ${app}
+    stow --verbose=1 -R -t ${usr} -d "config" ${app}
 }
 
 echo ""
