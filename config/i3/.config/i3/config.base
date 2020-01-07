@@ -144,6 +144,7 @@ exec --no-startup-id slack
 exec --no-startup-id xautolock -time 5 -corners -0-0 -locker '~/.config/i3/lock.sh'
 exec --no-startup-id owncloud
 exec_always --no-startup-id nm-applet
+exec --no-startup-id numlockx on 
 
 # I3 Gaps
 for_window [class=".*"] title_format " %title"
