@@ -32,6 +32,7 @@ useronly=(
     'sublime-text'
     'ipython'
     'vim'
+    'latexmk'
 )
 
 # run the stow command for the passed in directory ($2) in location $1
