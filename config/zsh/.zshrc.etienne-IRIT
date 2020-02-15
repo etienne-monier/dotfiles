@@ -17,8 +17,7 @@ export PATH=$PATH:/opt/sublime_text/
 
 ## Python Path modification
 export PYTHONPATH="$PYTHONPATH:/home/etienne/.mypython3"
-export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pystem"
-export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pystem-dev"
+# export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/inpystem"
 export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pyxport"
 export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/Unmixing"
 export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/PyModules"

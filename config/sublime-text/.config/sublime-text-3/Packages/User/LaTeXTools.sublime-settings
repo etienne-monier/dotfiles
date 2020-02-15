@@ -200,7 +200,7 @@
 
 	"osx": 	{
 		// Path used when invoking tex & friends; MUST include $PATH
-		"texpath" : "$PATH:/Library/TeX/texbin:/usr/texbin:/usr/local/bin:/opt/local/bin",
+		// "texpath" : "$PATH:/Library/TeX/texbin:/usr/texbin:/usr/local/bin:/opt/local/bin",
 		// Path to PDF viewer, if needed
 		// TODO think about it. Also, maybe configure it here!
 	},
@@ -210,7 +210,7 @@
 		// Path used when invoking tex & friends; "" is fine for MiKTeX
 		// For TeXlive 2011 (or other years) use
 		// "texpath" : "C:\\texlive\\2011\\bin\\win32;$PATH",
-		"texpath" : "",
+		// "texpath" : "",
 		// TeX distro: "miktex" or "texlive"
 		"distro" : "miktex",
 		// Command to invoke Sumatra. If blank, "SumatraPDF.exe" is used (it has to be on your PATH)
@@ -226,12 +226,12 @@
 
 	"linux" : {
 		// Path used when invoking tex & friends; MUST include $PATH
-		"texpath" : "$PATH",
+		"texpath" : "/home/etienne/.texlive/2019/bin/x86_64-linux:$PATH",
 		// Command to invoke Python. Useful if you have Python installed in a
 		// non-standard location or want to use a particular version of python.
 		// Both Python2 and Python3 are supported, but must have the DBus bindings
 		// installed.
-		"python": "",
+		"python": "python",
 		// The name of the ST2 or ST3 executable. On Ubuntu, both subl and sublime-text are
 		// available for ST2; adjust as needed for other platforms, and for ST3
 		"sublime": "sublime_text",
@@ -243,7 +243,7 @@
 		"sync_wait": 1.5,
 		// Command to invoke Sublime Text. Used if the keep_focus toggle is true.
 		// If blank, "subl" or "sublime_text" will be used.
-		"sublime_executable": "",
+		"sublime_executable": "", // sublime_text
 		// how long (in ms) to wait after the jump_to_pdf command completes
 		// before switching focus back to Sublime Text. This may need to be
 		// adjusted depending on your machine and configuration.
@@ -325,7 +325,7 @@
 	// if you do so, however, note that the path will be interpreted
 	// relative to the location of your project file
 
-	"output_directory": "",
+	"output_directory": "build",
 
 	// OPTION: "jobname"
 	// Specifies the jobname to use when building the document
@@ -377,7 +377,7 @@
 	// NOTE: custom builders CANNOT have the same name as an existing
 	// built-in build engine (including "default")
 
-	"builder": "script",
+	"builder": "traditional",
 
 	// OPTION: "builder_path"
 	// If non-empty, specifies a path to a custom builder, relative to the
@@ -414,11 +414,10 @@
 		},
 
 		"linux" : {
-			// See README or third-party documentation
-			"script_commands" : ["pdflatex -interaction=errorstopmode -synctex=1 -shell-escape",
-								 "bibtex",
-								 "pdflatex -interaction=errorstopmode -synctex=1 -shell-escape",
-								 "pdflatex -interaction=errorstopmode -synctex=1 -shell-escape"]
+			// "script_commands": ["latexmk -pdf -file-line-error"],
+			"env": {
+            	"TEXINPUTS": "/home/etienne/.texmf/"
+        	}
 		}
 	},
 
@@ -445,7 +444,7 @@
 	// controls whether or not to display any bad boxes in the build output
 	// if this is not set to true, the setting "no_badboxes" for
 	// "hide_build_panel" is equivalent to "no_warnings"
-	"display_bad_boxes": false,
+	"display_bad_boxes": true,
 
 	// OPTION: "show_error_phantoms"
 	// (ST3, Build 3118+ only)
@@ -489,7 +488,7 @@
 	//					Windows
 	//
 	// "zathura"		uses Zathura to open the pdf
-	"viewer": "",
+	"viewer": "evince",
 
 	// OPTION: "viewer_settings"
 	// Specify viewer-dependent settings and preferences
