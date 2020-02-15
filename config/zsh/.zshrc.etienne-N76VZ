@@ -44,4 +44,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
     fi
 fi
 
+## Minecraft
+##
 alias minecraft="java -jar $HOME/.minecraft/SkaiaCraft\ Launcher\ v3.0.jar"

@@ -16,31 +16,14 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-
-## Path modification
-export PATH=$PATH:$HOME/.matlab2017/bin/            # Add Matlab to the path
-export PATH=$PATH:$HOME/.mycodes/                   # Add personal bash codes
-export PATH=$PATH:$HOME/ownCloud/github/PyXport/    # Add plotdat
-export PATH=$PATH:/opt/sublime_text/
-
+# if running zsh
+if [ -n "$ZSH_VERSION" ]; then
+    # include .zshrc if it exists
+    if [ -f "$HOME/.zshrc" ]; then
+	. "$HOME/.zshrc"
+    fi
+fi
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-export PYTHONIOENCODING="utf-8"
-
-
-## Latex conf
-##
-
-if [ -d ~/.texmf ] ; then
-    export TEXMFHOME=~/.texmf
-fi
-
-export PATH="$HOME/.texlive/2019/bin/x86_64-linux:$PATH"
-
 
