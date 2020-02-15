@@ -16,7 +16,7 @@ focus_follows_mouse yes
 # Police à utiliser
 font pango:Monaco 8
 
-exec --no-startup-id gnome-settings-daemon
+exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
 ###############################
 #         KEYBINDING          #
