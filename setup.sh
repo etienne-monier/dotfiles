@@ -7,12 +7,13 @@ find . -name "*.sh" -exec chmod +x {} \;
 # Generate the correct files to stow.
 #
 HOSTNAME=`hostname`
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # i3wm
-FOLDER="$HOME/.dotfiles/config/i3/.config/i3"
+FOLDER="$DIR/config/i3/.config/i3"
 cat $FOLDER/config.$HOSTNAME $FOLDER/config.base > $FOLDER/config
 # zsh
-FOLDER="$HOME/.dotfiles/config/zsh/"
+FOLDER="$DIR/config/zsh/"
 cat $FOLDER/.zshrc.base $FOLDER/.zshrc.$HOSTNAME > $FOLDER/.zshrc
 
 
