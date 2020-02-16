@@ -176,3 +176,15 @@ alias ipython3='ipython3 --profile=dev'
 
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 
+## Add user's private bin in path
+##
+
+if [ -d "$HOME/bin" ]; then
+  export PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+
