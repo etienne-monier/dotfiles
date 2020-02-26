@@ -16,8 +16,6 @@ focus_follows_mouse yes
 # Police à utiliser
 font pango:Monaco 8
 
-exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-
 ###############################
 #         KEYBINDING          #
 ###############################
@@ -126,7 +124,7 @@ bindsym Print exec xfce4-screenshooter
 # Workspace 1 (Web)
 assign [class="Firefox"] $ws1
 # Workspace 2 (Mail|Slack)
-assign [class="Thunderbird|Slack"] $ws2
+assign [class="Thunderbird|Mattermost"] $ws2
 # Workspace 3 (Code)
 # assign [class="Sublime_text"] $ws3
 
@@ -138,12 +136,14 @@ assign [class="Thunderbird|Slack"] $ws2
 exec --no-startup-id compton
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
-exec --no-startup-id slack
-# exec --no-startup-id sublime_text
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id xautolock -time 5 -corners -0-0 -locker '~/.config/i3/lock.sh'
+exec --no-startup-id /home/etienne/.mattermost/mattermost-desktop
 exec --no-startup-id owncloud
+
+# Autolock config
+exec --no-startup-id xautolock -time 10 -corners -0-0 -locker '~/.config/i3/lock.sh'
+# Network Manager
 exec_always --no-startup-id nm-applet
+# Enables numlock
 exec --no-startup-id numlockx on 
 
 # I3 Gaps
