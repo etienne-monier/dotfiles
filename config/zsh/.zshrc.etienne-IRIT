@@ -14,6 +14,7 @@ export PATH=$PATH:$HOME/.matlab2017/bin/            # Add Matlab to the path
 export PATH=$PATH:$HOME/.mycodes/                   # Add personal bash codes
 export PATH=$PATH:$HOME/ownCloud/github/PyXport/    # Add plotdat
 export PATH=$PATH:/opt/sublime_text/
+export PATH=$PATH:$HOME/.mattermost/
 
 ## Python Path modification
 export PYTHONPATH="$PYTHONPATH:/home/etienne/.mypython3"

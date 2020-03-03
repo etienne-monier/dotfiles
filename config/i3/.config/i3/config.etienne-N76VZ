@@ -13,6 +13,7 @@ set $shift Ctrl
 
 # Fond d'écran
 exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/UbuntuBird.jpg
+exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
 ###############################
 #         KEYBINDING          #
