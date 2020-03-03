@@ -26,7 +26,7 @@ Plugin 'scrooloose/syntastic'
 " Plugin 'wincent/cammand-t'
 " Plugin 'vim-scripts/taglist.vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'WolfgangMehner/vim-plugins'
+" Plugin 'WolfgangMehner/vim-plugins'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'chrisbra/Replay'
@@ -34,6 +34,17 @@ Plugin 'chrisbra/Replay'
 " For markdown preview
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+
+" color themes
+Plugin 'altercation/vim-colors-solarized', {'as': 'solarized'}
+Plugin 'cocopon/iceberg.vim'
+
+" Status line theme
+Plugin 'itchyny/lightline.vim'
+set laststatus=2
+let g:lightline = {'colorscheme': 'iceberg',}
+set ttimeoutlen=50
+
 
 filetype plugin indent on 
 
@@ -45,7 +56,7 @@ set showcmd		        " Affiche (partiellement) la commande dans la barre de stat
 set showmatch		        " Afficher les brackets qui correspondent
 set ignorecase		        " Recherche insensible à la casse
 set incsearch		        " Recherche insensible à la casse
-set mouse=a		        " Activer la souris pour tous les modes
+set mouse=r		        " Activer la souris pour tous les modes
 set number		        " Afficher les numéros de ligne
 set shiftwidth=4	        " Une tabulation = 4 espaces
 set tabstop=4
@@ -60,7 +71,10 @@ set wildignore=*.o,*~ 	        " Ignorer les fichiers temporaires et objets
 set foldmethod=indent           " Méthode pour cacher du code (donc selon l'indentation)
 set nofoldenable                " Ne rien cacher par défaut
 
-set background=dark 
+" Color scheme
+set background=dark
+" let g:solarized_termcolors=256
+colorscheme iceberg
 
 " Autocomplétion intelligente
 set omnifunc=syntaxcomplete#Complete
