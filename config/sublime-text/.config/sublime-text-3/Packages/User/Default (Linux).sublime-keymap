@@ -28,4 +28,7 @@
   // SublimePeek
   { "keys": ["ctrl+shift+h"], "command": "sublime_peek" }
 
+
+  // Default console toggle shortcut (ctrl+`) does not work in azerty
+  //{ "keys": ["ctrl+œ"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 ]

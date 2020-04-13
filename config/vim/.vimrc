@@ -44,6 +44,19 @@ Plugin 'itchyny/lightline.vim'
 set laststatus=2
 let g:lightline = {'colorscheme': 'iceberg',}
 set ttimeoutlen=50
+set noshowmode
+set shortmess+=F
+
+" Ledger
+Plugin 'ledger/vim-ledger'
+let g:ledger_maxwidth = 80
+let g:ledger_fillstring = '    -'
+let g:ledger_detailed_first = 1
+let g:ledger_fold_blanks = 1
+
+au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
+au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
+noremap <silent><buffer> <2-LeftMouse> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
 
 
 filetype plugin indent on 
@@ -56,7 +69,7 @@ set showcmd		        " Affiche (partiellement) la commande dans la barre de stat
 set showmatch		        " Afficher les brackets qui correspondent
 set ignorecase		        " Recherche insensible à la casse
 set incsearch		        " Recherche insensible à la casse
-set mouse=r		        " Activer la souris pour tous les modes
+set mouse=a		        " Activer la souris pour tous les modes
 set number		        " Afficher les numéros de ligne
 set shiftwidth=4	        " Une tabulation = 4 espaces
 set tabstop=4
@@ -81,6 +94,12 @@ set omnifunc=syntaxcomplete#Complete
 
 " Désactiver les commentaires auto
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+" if has("autocmd")
+"       au BufReadPost * if line("'\") > 1 && line("'\") <= line("$") | exe "normal! g'\" | endif
+" endif
 
 " Touche bonus que l'on peut utiliser pour mapper certaines commandes
 let mapleader = ","

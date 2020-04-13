@@ -24,3 +24,4 @@ if [ -n "$ZSH_VERSION" ]; then
     fi
 fi
 
+PATH=$PATH:/home/etienne/.local/bin
