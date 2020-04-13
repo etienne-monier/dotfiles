@@ -28,9 +28,9 @@ bindsym $mod+Mod2+KP_Enter exec i3-sensible-terminal
 ###############################
 
 # Workspaces
-set $ws1 "1 Web"
-set $ws2 "2 Mail"
-set $ws3 "3 Code"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
