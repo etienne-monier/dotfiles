@@ -10,16 +10,14 @@ alias lp='lp -o media=A4 -d laseri2eme-color -o fit-to-page -o Duplex=DuplexNoTu
 ##
 
 ## Path modification
+export PATH=$PATH:$HOME/ownCloud/github/mybin/      # Add personal bash codes
 export PATH=$PATH:$HOME/.matlab2017/bin/            # Add Matlab to the path
-export PATH=$PATH:$HOME/.mycodes/                   # Add personal bash codes
-export PATH=$PATH:$HOME/ownCloud/github/PyXport/    # Add plotdat
 export PATH=$PATH:/opt/sublime_text/
 export PATH=$PATH:$HOME/.mattermost/
 
 ## Python Path modification
-export PYTHONPATH="$PYTHONPATH:/home/etienne/.mypython3"
-export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/pyxport"
-export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/Unmixing"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/PyModules/pyxport"
+export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/PyModules/unmixing"
 export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/PyModules"
 
 # export PYTHONPATH="$PYTHONPATH:/home/etienne/ownCloud/github/inpystem"

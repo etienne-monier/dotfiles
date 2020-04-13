@@ -11,8 +11,9 @@
 		}
 	],
 	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).sublime-color-scheme",
+	//"color_scheme": "Packages/Solarized Color Scheme/Solarized (light).sublime-color-scheme",
 	"debug": true,
-	"dictionary": "Packages/Language - English/en_US.dic",
+	"dictionary": "Packages/French Dico/fr_FR.dic",
 	"font_size": 10,
 	"ignored_packages":
 	[
