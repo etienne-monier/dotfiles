@@ -437,9 +437,9 @@ animation-packetloss-framerate = 500
 ;;;;;;;;
 
 [module/date]
-type = internal/date
-; type = custom/script
-; exec = ~/.config/polybar/scripts/date/date.sh
+; type = internal/date
+type = custom/script
+exec = /home/etienne/.config/polybar/scripts/date/date.sh
 
 ; Seconds to sleep between updates
 interval = 5
@@ -448,8 +448,8 @@ interval = 5
 
 ; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
 ; NOTE: if you want to use syntax tags here you need to use %%{...}
-date = %A %d %B %Y
-time = %H:%M
+; date = %A %d %B %Y
+; time = %H:%M
 
 ; if `date-alt` or `time-alt` is defined, clicking
 ; the module will toggle between formats
@@ -465,13 +465,13 @@ format-underline = #0a6cf5
 ; Available tags:
 ;   <label> (default)
 ;format-prefix = 
-format = <label>
+; format = <label>
 
 ; Available tokens:
 ;   %date%
 ;   %time%
 ; Default: %date%
-label =  %date%   %time%
+; label =  %date%   %time%
 
 
 [module/popup-calendar]
