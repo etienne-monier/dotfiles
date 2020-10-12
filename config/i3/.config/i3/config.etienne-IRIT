@@ -80,8 +80,5 @@ bindsym $mod+Ctrl+Mod2+KP_8 move container to workspace $ws8
 bindsym $mod+Ctrl+Mod2+KP_9 move container to workspace $ws9
 bindsym $mod+Ctrl+Mod2+KP_Decimal move container to workspace $ws10
 
-# Texstudio
-assign [class="TeXstudio"] $ws3
-exec --no-startup-id texstudio
-
-exec --no-startup-id /home/etienne/.i3/setup.sh
+# I3 layout config
+# exec --no-startup-id /home/etienne/.i3-layout/setup.sh

@@ -90,7 +90,7 @@
 	// "all"       to show a phantom for each math environment
 	// "selected"  to show a phantom only for the currently selected math environment
 	// "none"      to disable math live preview
-	"preview_math_mode": "all",
+	"preview_math_mode": "selected",
 
 	// Change the scope selectors to preview math
 	// E.g. set it to "text.tex.latex meta.environment.math.block.be"
@@ -126,7 +126,10 @@
 		"\\usepackage{amsmath}",
 		"\\usepackage{amssymb}",
 		"\\IfFileExists{latexsym.sty}{\\usepackage{latexsym}}{}",
-		"\\IfFileExists{mathtools.sty}{\\usepackage{mathtools}}{}"
+		"\\IfFileExists{mathtools.sty}{\\usepackage{mathtools}}{}",
+		// "\\usepackage[acronym]{glossaries}",
+		// "\\makeglossaries",
+		// "\\input{/home/etienne/ownCloud/Manuscrit/input_files/acronyms_and_glossary}"
 	],
 
 	// An string of the remaining preamble (not packages) for the file,

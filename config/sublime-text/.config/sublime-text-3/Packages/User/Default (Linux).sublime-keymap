@@ -26,6 +26,9 @@
   { "keys": ["ctrl+shift+t"], "command": "delete_trailing_spaces" },
 
   // SublimePeek
-  { "keys": ["ctrl+shift+h"], "command": "sublime_peek" }
+  { "keys": ["ctrl+shift+h"], "command": "sublime_peek" },
+
+  // Insert Current date
+  { "keys": ["ctrl+shift+d"], "command": "insert_date", "args": {"format": "%d/%m/%Y"}},
 
 ]

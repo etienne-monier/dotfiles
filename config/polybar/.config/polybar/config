@@ -116,7 +116,7 @@ inherit = bar/default
 monitor = DVI-I-1
 bottom = true
 tray-position = left
-modules-left = tray-position = right pulseaudio 
+modules-left = pulseaudio 
 modules-center = 
 modules-right = xkeyboard 
 padding-left = 3
@@ -693,13 +693,15 @@ label-close-foreground = ${colors.power}
 label-separator = |
 label-separator-foreground = ${colors.secondary}
 
-menu-0-0 = reboot
+menu-0-0 = sleep
 menu-0-0-foreground = ${colors.foreground}
-menu-0-0-exec = reboot
-menu-0-1 = power off
+menu-0-0-exec = systemctl suspend
+menu-0-1 = reboot
 menu-0-1-foreground = ${colors.foreground}
-menu-0-1-exec = poweroff
-
+menu-0-1-exec = reboot
+menu-0-2 = power off
+menu-0-2-foreground = ${colors.foreground}
+menu-0-2-exec = poweroff
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
