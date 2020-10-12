@@ -7,10 +7,14 @@
 	[
 		"Grammalecte",
 		"INI",
+		"InsertDate",
 		"LaTeX-cwl",
+		"Ledger syntax highlighting",
 		"MarkdownPreview",
 		"Package Control",
+		"PackageDev",
 		"Restructured Text (RST) Snippets",
+		"Solarized Color Scheme",
 		"SublimeLinter-chktex",
 		"SublimePeek"
 	]

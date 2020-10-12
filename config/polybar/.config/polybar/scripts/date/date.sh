@@ -1,3 +1,5 @@
 #!/bin/bash
 
-echo `date "+%A %d %B %Y  %H:%M"`
+DATE=`date "+%A %d %B %Y"`
+HEURE=`date "+%H:%M"`
+echo " $DATE   $HEURE"

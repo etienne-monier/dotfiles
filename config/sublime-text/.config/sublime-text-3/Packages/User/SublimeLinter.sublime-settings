@@ -15,7 +15,7 @@
 
             // Path to the executable to be used. Either a string or an
             // array. E.g. ['nvm', 'exec', '8.6', 'eslint']
-            "executable": ["/home/etienne/.pyenv/versions/3.6.2/bin/flake8"],
+            "executable": ["/home/etienne/.pyenv/shims/flake8"],
 
             // A modified runtime environment for the lint job. Settings here
             // override the default, inherited ENV.

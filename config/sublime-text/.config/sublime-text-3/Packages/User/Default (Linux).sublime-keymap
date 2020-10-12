@@ -31,4 +31,7 @@
   // Insert Current date
   { "keys": ["ctrl+shift+d"], "command": "insert_date", "args": {"format": "%d/%m/%Y"}},
 
+
+  // Default console toggle shortcut (ctrl+`) does not work in azerty
+  //{ "keys": ["ctrl+œ"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
 ]
