@@ -11,17 +11,13 @@
 			"selector": "text.tex.latex"
 		}
 	],
-	
-    "color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
-	
-    // "color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).sublime-color-scheme",
-	//"color_scheme": "Packages/Solarized Color Scheme/Solarized (light).sublime-color-scheme",
-	
-    "debug": true,
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+	"debug": true,
 	"dictionary": "Packages/French Dico/fr_FR.dic",
 	"font_size": 9,
 	"ignored_packages":
 	[
+		"Color Highlight",
 		"FileBrowser",
 		"PyDOC",
 		"Restructured Text (RST) Snippets",
