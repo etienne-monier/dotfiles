@@ -39,8 +39,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.
 
 
 ## Powerlevel9k theme
-echo -e "${BLUE}Installing Powerlevel9k theme ... ${NC}"
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+echo -e "${BLUE}Installing Powerlevel10k theme ... ${NC}"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 
 ##

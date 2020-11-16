@@ -17,7 +17,7 @@ fi
 
 ## Re-launch .zshrc for PATH location and launch sublime_text for config file init.
 source $HOME/.zshrc
-sublime_text
+/opt/sublime_text/sublime_text
 
 
 ## Instalation root

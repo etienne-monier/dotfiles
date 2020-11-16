@@ -136,6 +136,10 @@ modules-right = network cpu memory temperature pulseaudio battery powermenu
 inherit = bar/bottom
 monitor = LVDS-1
 
+[bar/homelaptop]
+inherit = bar/bottom
+monitor = HDMI-1
+
 [bar/smalllaptop]
 inherit = bar/bottom
 monitor = eDP-1
@@ -339,6 +343,7 @@ format = <label> <ramp-coreload>
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
 format-prefix = 
+# label = " %percentage%%"
 label =  %percentage%%
 
 ; Spacing between individual per-core ramps
@@ -639,6 +644,8 @@ type = internal/temperature
 ; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
 ; Default: 0
 thermal-zone = 0
+
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
 
 ; Threshold temperature to display warning label (in degrees celsius)
 ; Default: 80

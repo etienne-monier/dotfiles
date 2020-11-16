@@ -7,15 +7,13 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch correct bars
-if [ `hostname` = 'etienne-IRIT' ]; then
-    polybar left & 
-    polybar right;
-else
-    if [ `hostname` = 'etienne-UX32VD' ]; then
-        polybar smalllaptop;
-    else
-        polybar mainlaptop
-    fi
-fi
+HOSTNAME=`hostname`
+
+case $HOSTNAME in
+  'etienne-IRIT') polybar left & polybar right;;
+  'etienne-UX32VD') polybar smalllaptop;;
+  'etienne-home') polybar homelaptop;;
+  *) polybar mainlaptop
+esac
 
 echo "Bars launched..."

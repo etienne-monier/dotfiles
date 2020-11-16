@@ -1,0 +1,84 @@
+##
+##
+## CONFIG SPECIFIC TO HOME LAPTOP
+##
+##
+
+set $mod Mod4
+set $shift Ctrl
+
+###############################
+#          APPARENCE          #
+###############################
+
+# Fond d'écran
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/Wallpaper/UbuntuBird.jpg
+exec_always --no-startup-id /usr/libexec/gsd-xsettings
+
+###############################
+#         KEYBINDING          #
+###############################
+
+# Open terminal with mod + keypad Enter
+bindsym $mod+Mod2+KP_Enter exec i3-sensible-terminal
+
+
+bindsym XF86MonBrightnessDown exec "light -U 10"
+bindsym XF86MonBrightnessUp exec "light -A 10"
+
+
+###############################
+#        WORKSPACES           #
+###############################
+
+# Workspaces
+set $ws1 "1 Web"
+set $ws2 "2 Mail"
+set $ws3 "3 Code"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $monitor HDMI-1
+
+# Ecran associé à chaque Workspace
+workspace $ws1 output $monitor
+workspace $ws2 output $monitor
+workspace $ws3 output $monitor
+workspace $ws4 output $monitor
+workspace $ws5 output $monitor
+workspace $ws6 output $monitor
+workspace $ws7 output $monitor
+workspace $ws8 output $monitor
+workspace $ws9 output $monitor
+workspace $ws10 output $monitor
+
+# switch to workspace
+bindsym $mod+Mod2+KP_1 workspace $ws1
+bindsym $mod+Mod2+KP_2 workspace $ws2
+bindsym $mod+Mod2+KP_3 workspace $ws3
+bindsym $mod+Mod2+KP_4 workspace $ws4
+bindsym $mod+Mod2+KP_5 workspace $ws5
+bindsym $mod+Mod2+KP_6 workspace $ws6
+bindsym $mod+Mod2+KP_7 workspace $ws7
+bindsym $mod+Mod2+KP_8 workspace $ws8
+bindsym $mod+Mod2+KP_9 workspace $ws9
+bindsym $mod+Mod2+KP_Decimal workspace $ws10
+
+# bindsym $mod+Ctrl+Right workspace next
+# bindsym $mod+Ctrl+Left workspace prev
+
+# move focused container to workspace
+bindsym $mod+Ctrl+Mod2+KP_1 move container to workspace $ws1
+bindsym $mod+Ctrl+Mod2+KP_2 move container to workspace $ws2
+bindsym $mod+Ctrl+Mod2+KP_3 move container to workspace $ws3
+bindsym $mod+Ctrl+Mod2+KP_4 move container to workspace $ws4
+bindsym $mod+Ctrl+Mod2+KP_5 move container to workspace $ws5
+bindsym $mod+Ctrl+Mod2+KP_6 move container to workspace $ws6
+bindsym $mod+Ctrl+Mod2+KP_7 move container to workspace $ws7
+bindsym $mod+Ctrl+Mod2+KP_8 move container to workspace $ws8
+bindsym $mod+Ctrl+Mod2+KP_9 move container to workspace $ws9
+bindsym $mod+Ctrl+Mod2+KP_Decimal move container to workspace $ws10
