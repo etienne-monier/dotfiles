@@ -20,6 +20,7 @@ cat $FOLDER/.zshrc.base $FOLDER/.zshrc.$HOSTNAME > $FOLDER/.zshrc
 # what directories should be installable by all users including the root user
 base=(
     'zsh'
+    'vim'
 )
 
 # folders that should, or only need to be installed for a local user

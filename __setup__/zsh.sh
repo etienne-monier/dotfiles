@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 ##
 
 ## Install zsh and check version
-which zsh >> /dev/null 
+which zsh >> /dev/null
 if [ ! $? -eq 0 ]; then
     echo -e "${BLUE}Installing zsh ... ${NC}"
     sudo apt install zsh
@@ -49,32 +49,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 ## Hack Nerd Font font
 echo -e "${BLUE}Installing hack font ... ${NC}"
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Hack.zip
-mkdir hack
-unzip Hack.zip -d hack
-rm Hack.zip
-sudo mv hack /usr/share/fonts/truetype
-fc-cache -f -v
-
-# Check installation
-fc-list | grep 'Hack' >> /dev/null 
-if [ $? -eq 0 ]; then
-    echo -e "${GREEN}Hack Nerd Font successfully installed ... ${NC}"
-    HACKINST='OK'
-else
-    echo -e "${RED}Hack Nerd Font installation failed ... ${NC}"
-    HACKINST='NO'
-fi
-
-## ls en couleur
-# sudo apt-get install ruby ruby-dev rubygems libncurses5-dev
-# sudo gem install colorls
-
-
-## Logout and login to take into account
-if [ "$HACKINST" = 'OK' ]; then
-    echo -e "${GREEN}Installation was successful. Please logout and login to take installation into account.${NC}"
-else
-    echo -e "${RED}Installation failed. Hack Neired Font installation failed.${NC}"
-fi
-
+git clone https://github.com/ryanoasis/nerd-fonts.git "$HOME:nerd-font"
+cd nerd-font
+git checkout v2.0
+chmod +x install.sh
+./install.sh

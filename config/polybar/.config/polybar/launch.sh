@@ -13,6 +13,7 @@ case $HOSTNAME in
   'etienne-IRIT') polybar left & polybar right;;
   'etienne-UX32VD') polybar smalllaptop;;
   'etienne-home') polybar homelaptop;;
+  'PO20212LXe') polybar cslaptop;;
   *) polybar mainlaptop
 esac
 

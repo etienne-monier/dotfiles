@@ -140,6 +140,10 @@ monitor = LVDS-1
 inherit = bar/bottom
 monitor = HDMI-1
 
+[bar/cslaptop]
+inherit = bar/bottom
+# monitor = eDP-1
+
 [bar/smalllaptop]
 inherit = bar/bottom
 monitor = eDP-1
@@ -444,7 +448,7 @@ animation-packetloss-framerate = 500
 [module/date]
 ; type = internal/date
 type = custom/script
-exec = /home/etienne/.config/polybar/scripts/date/date.sh
+exec = $HOME/.config/polybar/scripts/date/date.sh
 
 ; Seconds to sleep between updates
 interval = 5

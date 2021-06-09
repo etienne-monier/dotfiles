@@ -1,5 +1,7 @@
 {
 	"bootstrapped": true,
+	"http_proxy": "http://proxy2.si.c-s.fr:3128",
+	"https_proxy": "http://proxy2.si.c-s.fr:3128",
 	"in_process_packages":
 	[
 	],
