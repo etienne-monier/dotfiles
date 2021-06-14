@@ -69,6 +69,9 @@ for file in $FILES_TO_BUILD; do
 
 done
 
+# Remove pro files.
+echo -e "\n*PO20212LXe" >> .gitignore
+
 
 ## Stowing files
 #
