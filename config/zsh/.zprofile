@@ -39,4 +39,4 @@ if [ -d ~/.texmf ] ; then
     export TEXMFHOME=~/.texmf
 fi
 
-addpath("$HOME/.texlive/bin/x86_64-linux")
+addpath "$HOME/.texlive/bin/x86_64-linux"
