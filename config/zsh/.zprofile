@@ -27,10 +27,10 @@ addpath(){
 ## General programs
 ##
 
-addpath("$HOME/bin")
-addpath("$HOME/.local/bin")
-addpath("/opt/TurboVNC/bin/")
-addpath("$HOME/.mybin")
+addpath "$HOME/bin"
+addpath "$HOME/.local/bin"
+addpath "/opt/TurboVNC/bin/"
+addpath "$HOME/.mybin"
 
 ## Latex conf
 ##
