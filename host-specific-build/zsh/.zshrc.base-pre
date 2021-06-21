@@ -60,10 +60,15 @@ plugins=(
   colored-man-pages
   z
   zsh-syntax-highlighting
-  ssh-agent
 )
 
-zstyle :omz:plugins:ssh-agent ssh-add-args -q
+# If non-root, add ssh-agent
+if [[ $EUID -ne 0 ]]; then
+  plugins+=( ssh-agent )
+fi
+
+# To set ssh agent quiet
+ZSH_SSH_AGENT_QUIET=true
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.oh-my-zsh/plugins/z/z.sh
