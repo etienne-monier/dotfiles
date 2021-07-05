@@ -70,6 +70,11 @@ fi
 # To set ssh agent quiet
 ZSH_SSH_AGENT_QUIET=true
 
+if [ "$HOST" = "PO20212LXe" ]
+then
+  zstyle :omz:plugins:ssh-agent identities id_rsa-cnes
+fi
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/.oh-my-zsh/plugins/z/z.sh
 
@@ -124,6 +129,5 @@ alias egrep='egrep --color=auto'
 
 # ipython default profile
 alias ipython='ipython3 --profile=dev'
-alias ipython3='ipython3 --profile=dev'
 
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
