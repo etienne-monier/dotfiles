@@ -1,5 +1,6 @@
 # Remove host-specific files
 config/zsh/.zshrc
 config/i3/.config/i3/config
+config/git/.gitconfig
 
 *PO20212LXe
