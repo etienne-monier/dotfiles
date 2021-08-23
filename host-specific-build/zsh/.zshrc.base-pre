@@ -60,6 +60,7 @@ plugins=(
   colored-man-pages
   z
   zsh-syntax-highlighting
+  poetry
 )
 
 # If non-root, add ssh-agent
