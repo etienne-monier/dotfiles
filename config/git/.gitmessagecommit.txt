@@ -1,0 +1,39 @@
+# <type>: (If applied, this commit will...) <subject> (Max 50 char)
+# |<----  Using a Maximum Of 50 Characters  ---->|
+
+# Explain why this change is being made
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+
+
+# Provide links or keys to any relevant tickets, articles or other resources
+# Example:  Gitlab issue        #123
+#           Gitlab MR           !123
+#           Gitlab snippet      $123
+#           Gitlab people       @user_name / @group_name / @all
+#           Gitlab label        ~123 / ~bug / ~"feature request"
+#           Gitlab milestone    %123 / %v1.23 / %"release candidate"
+#           Gitlab commit       1ab23456
+#           Gitlab file         [README](doc/README) / [README](doc/README#L12)
+
+
+# --- COMMIT END ---
+# Type can be
+#    feat             A new feature
+#    fix              A bug fix
+#    BREAKING CHANGE  Breaking API change
+#    docs             Change to documentation only
+#    style            Change to style (whitespace, etc.)
+#    refactor         Change not related to a bug or feat
+#    perf             Change that affects performance
+#    test             Change that adds/modifies tests
+#    build            Change to build system
+#    ci               Change to CI pipeline/workflow
+#    chore            General tooling/config/min refactor
+# --------------------
+# Remember to
+#    Capitalize type in the subject line
+#    Use the imperative mood in the subject line
+#    Do not end the subject line with a period
+#    Separate subject from body with a blank line
+#    Use the body to explain what and why vs. how
+#    Can use multiple lines with "-" for bullet points in body

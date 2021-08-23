@@ -1,6 +1,10 @@
 [core]
-	editor = vim
+	editor = vim +3 +startinsert
 	pager = cat
 
+[commit]
+	template = ~/.gitmessagecommit.txt
+
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+    lg = log --branches --remotes --tags --graph --oneline --decorate
+	lg2 = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --all
