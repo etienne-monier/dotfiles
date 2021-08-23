@@ -17,7 +17,13 @@
 		"PackageDev",
 		"Restructured Text (RST) Snippets",
 		"Solarized Color Scheme",
+		"SublimeLinter",
 		"SublimeLinter-chktex",
+		"SublimeLinter-flake8",
 		"SublimePeek"
-	]
+	],
+	"auto_upgrade_ignore":
+     [
+         "LedgerTools",
+	],
 }

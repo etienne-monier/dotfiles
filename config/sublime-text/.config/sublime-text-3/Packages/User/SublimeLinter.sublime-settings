@@ -15,7 +15,7 @@
 
             // Path to the executable to be used. Either a string or an
             // array. E.g. ['nvm', 'exec', '8.6', 'eslint']
-            "executable": ["/home/etienne/.pyenv/shims/flake8"],
+            "executable": ["~/.pyenv/versions/3.8.10/bin/flake8"],
 
             // A modified runtime environment for the lint job. Settings here
             // override the default, inherited ENV.
@@ -97,10 +97,10 @@
             // thrown away.
             // E.g. ["warning: ", "W3\d\d: ", "missing <!DOCTYPE> declaration"]
             "filter_errors": ["Warning 9",
-                              "Warning 10", 
-                              "Warning 44", 
-                              "Warning 8", 
-                              "Warning 13", 
+                              "Warning 10",
+                              "Warning 44",
+                              "Warning 8",
+                              "Warning 13",
                               "Warning 24",
                               "Warning 41"],
 

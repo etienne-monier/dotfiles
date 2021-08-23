@@ -4,11 +4,11 @@
 	[
 		{
 			"characters": "<",
-			"selector": "text.html"
+			"selector": "text.html",
 		},
 		{
 			"characters": "\\",
-			"selector": "text.tex.latex"
+			"selector": "text.tex.latex",
 		}
 	],
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
@@ -22,7 +22,7 @@
 		"PyDOC",
 		"Restructured Text (RST) Snippets",
 		"SendCode",
-		"Vintage"
+		"Vintage",
 	],
 	"rulers":
 	[
@@ -32,5 +32,5 @@
 	"show_encoding": true,
 	"tab_size": 4,
 	"theme": "Default.sublime-theme",
-	"translate_tabs_to_spaces": true
+	"translate_tabs_to_spaces": true,
 }
