@@ -130,7 +130,7 @@ tray-detached = false
 
 modules-left = i3
 modules-center = date
-modules-right = network cpu memory temperature pulseaudio battery powermenu
+modules-right = network cpu memory temperature pulseaudio temperature battery powermenu
 
 [bar/mainlaptop]
 inherit = bar/bottom
