@@ -32,7 +32,7 @@ bindsym $mod+$shift+a kill
 # Rofi comme lanceur d'application
 bindsym $mod+d exec rofi -show drun
 
-# Changement du focus 
+# Changement du focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -42,7 +42,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Déplacement des fenêtres 
+# Déplacement des fenêtres
 bindsym $mod+$shift+j move left
 bindsym $mod+$shift+k move down
 bindsym $mod+$shift+l move up
@@ -52,7 +52,7 @@ bindsym $mod+$shift+Down move down
 bindsym $mod+$shift+Up move up
 bindsym $mod+$shift+Right move right
 
-# Changement du mode de split 
+# Changement du mode de split
 bindsym $mod+h split h
 bindsym $mod+v split v
 
@@ -134,8 +134,6 @@ assign [class="Thunderbird|Mattermost"] $ws2
 
 # Application au démarrage
 exec --no-startup-id compton
-exec --no-startup-id firefox
-exec --no-startup-id thunderbird
 exec --no-startup-id xautolock -time 5 -corners -0-0 -locker '~/.config/i3/lock.sh'
 exec --no-startup-id /home/etienne/.mattermost/mattermost-desktop
 exec --no-startup-id owncloud
@@ -145,7 +143,7 @@ exec --no-startup-id xautolock -time 10 -corners -0-0 -locker '~/.config/i3/lock
 # Network Manager
 exec_always --no-startup-id nm-applet
 # Enables numlock
-exec --no-startup-id numlockx on 
+exec --no-startup-id numlockx on
 
 # I3 Gaps
 for_window [class=".*"] title_format " %title"
