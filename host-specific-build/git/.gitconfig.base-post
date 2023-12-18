@@ -7,4 +7,7 @@
 
 [alias]
     lg = log --branches --remotes --tags --graph --oneline --decorate
-	lg2 = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --all
+
+[init]
+	defaultBranch = develop
+
