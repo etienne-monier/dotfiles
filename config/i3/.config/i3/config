@@ -1,0 +1,124 @@
+###################################################
+###################################################
+##
+##  ########   ##########
+##  ########   ##########
+##    ####           ####
+##    ####           ####
+##    ####     ##########
+##    ####     ##########
+##    ####           ####
+##    ####           ####
+##  ########   ##########
+##  ########   ##########
+##
+##  CONFIGURATION FILE
+##
+##  Author: Etienne Monier
+##
+###################################################
+###################################################
+
+# Focus window on mouse hover
+focus_follows_mouse yes
+
+###############################
+#          APPEARANCE         #
+###############################
+
+# Setting font
+font pango:Monaco 8
+
+# Wallpaper
+set $wallpaper ~/synology/home/Codes/dotfiles/Wallpaper/pepper-carrot-cosy.jpg
+exec_always --no-startup-id feh --bg-scale $wallpaper
+exec_always --no-startup-id /usr/libexec/gsd-xsettings
+
+# I3 Gaps
+gaps inner 10px
+smart_gaps on
+smart_borders on
+
+# STATUS LINE
+bar {
+    i3bar_command $HOME/.config/polybar/launch.sh
+    height 30
+}
+
+###############################
+#        WORKSPACES           #
+###############################
+
+# WORKSPACES
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# ASSOCIATE MONITORS TO WORKSPACES
+
+set $monitor eDP-1
+workspace $ws1 output $monitor
+workspace $ws2 output $monitor
+workspace $ws3 output $monitor
+workspace $ws4 output $monitor
+workspace $ws5 output $monitor
+workspace $ws6 output $monitor
+workspace $ws7 output $monitor
+workspace $ws8 output $monitor
+workspace $ws9 output $monitor
+workspace $ws10 output $monitor
+
+# FORCE WORSPACES FOR SOME APPLICATIONS (use xprop | grep WM_CLASS)
+
+# Workspace 1 (Web)
+assign [class="Firefox" window_type="normal"] $ws1
+# Workspace 2 (Mail|Mattermost)
+assign [class="(Thunderbird|Mattermost|KeePassXC)" window_type="normal"] $ws2
+# Workspace 5 (Chrome)
+assign [class="Google-chrome" window_type="normal"] $ws5
+
+###############################
+#            KEYMAPS          #
+###############################
+
+include ~/.config/i3/keybinding.conf
+
+###############################
+#            STARTUP          #
+###############################
+
+# WINDOW MANAGER APPLICATIONS
+exec --no-startup-id compton
+exec --no-startup-id xautolock -time 10 -corners -0-0 -locker '~/.config/i3/i3-lock.sh'
+exec --no-startup-id numlockx on
+exec --no-startup-id indicator-sound-switcher
+exec --no-startup-id synology-drive
+exec --no-startup-id nm-applet
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+# RESTORE WORSPACES
+
+# Workspace 1
+exec i3-msg 'workspace 1'
+exec firefox
+
+# Workspace 2
+exec i3-msg 'workspace 2; append_layout ~/.i3/workspace-2.json'
+exec thunderbird
+exec mattermost-desktop
+exec keepassxc
+
+# Workspace 3
+exec i3-msg 'workspace 3'
+exec code
+
+# Switch back to workspace 1
+exec i3-msg 'workspace 1'

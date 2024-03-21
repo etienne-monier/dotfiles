@@ -1,0 +1,6 @@
+# The overriding configuration for work code.
+# See https://blog.jannikwempe.com/git-config-includes
+
+[user]
+	name = Etienne Monier
+	email = etienne.monier@csgroup.eu

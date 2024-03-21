@@ -1,3 +1,7 @@
+[user]
+	name = Etienne Monier
+	email = etienne.monier@protonmail.com
+
 [core]
 	editor = vim +3 +startinsert
 	pager = cat
@@ -11,3 +15,5 @@
 [init]
 	defaultBranch = develop
 
+[includeIf "gitdir/i:~/Codes/"]
+  path = ~/.gitconfig-work
