@@ -85,6 +85,10 @@ assign [class="(Thunderbird|Mattermost|KeePassXC)" window_type="normal"] $ws2
 # Workspace 5 (Chrome)
 assign [class="Google-chrome" window_type="normal"] $ws5
 
+# Enable floating mode for all zoom dialogs
+for_window [class="zoom"  window_type="zoom"] floating enable
+# Enable floating mode for all firefox alerts
+for_window [window_role="alert"] floating enable
 
 ###############################
 #            KEYMAPS          #

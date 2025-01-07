@@ -7,7 +7,10 @@
 # Applications for all users (incl. root).
 base=(
   'zsh'
+<<<<<<< HEAD
   'vim'
+=======
+>>>>>>> develop
 )
 
 # Applications for non-root users.
@@ -20,7 +23,12 @@ useronly=(
   'rofi'
   'sublime-text'
   'ipython'
+<<<<<<< HEAD
   'vim'
+=======
+  'nvim'
+  'kitty'
+>>>>>>> develop
   'latexmk'
   'texstudio'
 )

@@ -26,7 +26,7 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 export PATH=/usr/local/lib/nodejs/node-v14.17.5-linux-x64/bin:$PATH
 
-# Pyenv config for non-interactive shells
+# Configure pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"

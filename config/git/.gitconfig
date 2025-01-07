@@ -3,7 +3,7 @@
 	email = etienne.monier@csgroup.eu
 
 [core]
-	editor = vim +3 +startinsert
+	editor = nvim +3 +startinsert
 	pager = cat
 
 [commit]

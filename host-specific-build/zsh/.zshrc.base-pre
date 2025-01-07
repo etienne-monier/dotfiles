@@ -83,7 +83,7 @@ source $HOME/.oh-my-zsh/plugins/z/z.sh
 export LANG=fr_FR.UTF-8
 
 # Color 256
-export TERM='xterm-256color'
+export TERM='xterm-kitty'
 
 # History configuration
 HISTSIZE=3000             # Nb de lignes en mémoire
