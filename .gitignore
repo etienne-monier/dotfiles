@@ -2,3 +2,5 @@
 hosts.md
 *PO20212LXe
 
+# Remove host-specific files
+config/zsh/.zshrc

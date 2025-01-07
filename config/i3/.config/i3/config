@@ -30,7 +30,8 @@ focus_follows_mouse yes
 font pango:Monaco 8
 
 # Wallpaper
-set $wallpaper ~/synology/home/Codes/dotfiles/Wallpaper/pepper-carrot-cosy.jpg
+set $wallpaper ~/synology/home/Codes/dotfiles/Wallpaper/cats-bridge.jpg
+# set $wallpaper ~/synology/home/Codes/dotfiles/Wallpaper/pepper-carrot-cosy.jpg
 exec_always --no-startup-id feh --bg-scale $wallpaper
 exec_always --no-startup-id /usr/libexec/gsd-xsettings
 
@@ -85,6 +86,11 @@ assign [class="(Thunderbird|Mattermost|KeePassXC)" window_type="normal"] $ws2
 # Workspace 5 (Chrome)
 assign [class="Google-chrome" window_type="normal"] $ws5
 
+# Enable floating mode for all zoom dialogs
+for_window [class="zoom"  window_type="zoom"] floating enable
+# Enable floating mode for all firefox alerts
+for_window [window_role="alert"] floating enable
+
 ###############################
 #            KEYMAPS          #
 ###############################
@@ -111,9 +117,7 @@ exec i3-msg 'workspace 1'
 exec firefox
 
 # Workspace 2
-exec i3-msg 'workspace 2; append_layout ~/.i3/workspace-2.json'
 exec thunderbird
-exec mattermost-desktop
 exec keepassxc
 
 # Workspace 3
