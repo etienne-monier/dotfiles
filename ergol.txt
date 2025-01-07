@@ -1,0 +1,6 @@
+sudo pip install kalamine
+sudo xkalamine install ergol.yaml
+setxkbmap fr -variant ergol
+
+setxkbmap fr -variant ergol
+setxkbmap fr

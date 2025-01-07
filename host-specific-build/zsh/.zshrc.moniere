@@ -1,0 +1,26 @@
+# Load SSH key
+zstyle :omz:plugins:ssh-agent quiet identities id_rsa-cnes
+
+#
+# CS tools
+#
+
+# TTV tool config
+export ODIN_PERSONAL_KEY=tlp-k1-124.4fc5e073dc693be02811a0ffe0dc29f5223b58c6743e28bce814f6951403a8da
+alias ttv_submit="~/.pyenv/versions/pyttv/bin/python .pyttv/ttv_submit.py"
+
+# Set environment variables related to the HTTP(S) proxy
+active_con=$(LC_ALL=C nmcli c show --active | grep -cE '(ethernet|wireless|wifi)' 2>/dev/null)
+if [ $active_con -gt "0" ]; then
+  if host -W 2 proxy2.si.c-s.fr &>/dev/null; then
+    . /etc/proxy-credentials
+  fi
+fi
+
+# tsocket conf
+export TSOCKS_CONFFILE="$HOME/.tsocks.conf"
+
+alias myvpn='( cd "$HOME/.vpn" && sudo openvpn vpn-cnes1-UDP4-1195-moniere.ovpn )'
+
+export PATH="/opt/nvim/bin:$PATH"
+alias vim='nvim'

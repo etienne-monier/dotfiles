@@ -1,6 +1,9 @@
-set nocompatible              " be iMproved, required
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
 
-filetype off                  " required
+" --------------------------------
+" PLUGGINS
+" --------------------------------
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -10,84 +13,112 @@ call vundle#rc()
 Plugin 'VundleVim/Vundle.vim'
 
 " Ma liste perso de plugins
-Plugin 'gmarik/vundle'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/a.vim'
-Plugin 'Rip-Rip/clang_complete'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
+
+" Plugin 'c9s/perlomni.vim'
+" Plugin 'scrooloose/syntastic'
+" " Plugin 'wincent/cammand-t'
+" " Plugin 'vim-scripts/taglist.vim'
+" Plugin 'Raimondi/delimitMate'
+" " Plugin 'WolfgangMehner/vim-plugins'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Plugin 'chrisbra/Replay'
+
+" " For markdown preview
+" Plugin 'godlygeek/tabular'
+" Plugin 'plasticboy/vim-markdown'
+
+
+
+" SIDE TREE
+Plugin 'preservim/nerdtree'
+Plugin 'ryanoasis/vim-devicons'
+
+" COMPLETION
 Plugin 'ervandew/supertab'
-Plugin 'emezeske/manpageview'
-Plugin 'terryma/vim-multiple-cursors'
+
+" EASY COMMENT
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-perl/vim-perl'
-Plugin 'c9s/perlomni.vim'
-Plugin 'scrooloose/syntastic'
-" Plugin 'wincent/cammand-t'
-" Plugin 'vim-scripts/taglist.vim'
-Plugin 'Raimondi/delimitMate'
-" Plugin 'WolfgangMehner/vim-plugins'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'chrisbra/Replay'
 
-" For markdown preview
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+" Multiple cursor selection
+" Plugin "mg979/vim-visual-multi"
+" Plugin 'terryma/vim-multiple-cursors' Deprecated
 
-" color themes
-Plugin 'altercation/vim-colors-solarized', {'as': 'solarized'}
+" GIT
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+
+" THEME
 Plugin 'cocopon/iceberg.vim'
-
-" Status line theme
 Plugin 'itchyny/lightline.vim'
-set laststatus=2
-let g:lightline = {'colorscheme': 'iceberg',}
-set ttimeoutlen=50
-set noshowmode
-set shortmess+=F
 
-" Ledger
-Plugin 'ledger/vim-ledger'
-let g:ledger_maxwidth = 80
-let g:ledger_fillstring = '    -'
-let g:ledger_detailed_first = 1
-let g:ledger_fold_blanks = 1
+" LINTING
+Plugin 'dense-analysis/ale'
 
-au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
-au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
-noremap <silent><buffer> <2-LeftMouse> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" WEB
+Plugin 'alvan/vim-closetag'
+Plugin 'AndrewRadev/tagalong.vim'
 
 
-filetype plugin indent on 
 
-syntax enable           	" Coloration syntaxique
+" --------------------------------
+" GENERAL SETTINGS
+" --------------------------------
 
-set ai 			        " Activer l'indentation automatique
-set si			        " Activer l'indentation intelligente
-set showcmd		        " Affiche (partiellement) la commande dans la barre de statut
-set showmatch		        " Afficher les brackets qui correspondent
-set ignorecase		        " Recherche insensible à la casse
-set incsearch		        " Recherche insensible à la casse
-set mouse=a		        " Activer la souris pour tous les modes
-set number		        " Afficher les numéros de ligne
-set shiftwidth=4	        " Une tabulation = 4 espaces
+
+set nocompatible              " Disable Vi compatible mode
+set mouse=a		                " Enable mouse in all modes
+
+" Encoding
+set encoding=UTF-8            " Set general encoding in VIM
+set fileencoding=utf-8        " Set file encoding in VIM
+
+" General look
+syntax enable           	    " Enable syntax coloration
+set number		                " Show line numbers
+set showmatch		              " Highlight closing brackets when inserted
+set ruler		                  " Show current position in buffer (lower right corner)
+
+" Indentation
+set ai 			                  " Enable auto indent
+set si			                  " Enable intelligent indent
+
+" Tabulation
+set shiftwidth=4	            " Set a tab as four spaces
 set tabstop=4
-set expandtab		        " Transformer les tabulations en espaces
-set ruler		        " Afficher la position courante
-set smarttab		        " Être intelligent dans l'utilisation des tabulations
-set fileencoding=utf-8          " Encoder en UTF-8
-set shell=zsh		        " Votre shell 
-set wildmenu                    " Completion dans l'interface
-set wildmode=list:longest       " Comportement de la complétion semblable à celui d'un shell
-set wildignore=*.o,*~ 	        " Ignorer les fichiers temporaires et objets
+set expandtab		              " Transformer les tabulations en espaces
+set smarttab		              " Être intelligent dans l'utilisation des tabulations
+
+" Search
+set ignorecase		            " Ingnore case while searching
+set incsearch		              " Highlight results while typing search
+
+" Undo
+set undofile                  " Store undo in a file for later edition.
+
+" Code folding
 set foldmethod=indent           " Méthode pour cacher du code (donc selon l'indentation)
 set nofoldenable                " Ne rien cacher par défaut
 
-" Color scheme
-set background=dark
-" let g:solarized_termcolors=256
-colorscheme iceberg
+" Shell and command completion
+set shell=/usr/bin/zsh		                " Votre shell
+set showcmd		        " Affiche (partiellement) la commande dans la barre de statut
+set wildmenu                    " Completion dans l'interface
+set wildmode=list:longest       " Comportement de la complétion semblable à celui d'un shell
+set wildignore=*.o,*~ 	        " Ignorer les fichiers temporaires et objets
+
+" File type detection
+filetype plugin indent on     " Enable file type auto detection, plugin and indentation
+
+
+set confirm
+
+
+
 
 " Autocomplétion intelligente
 set omnifunc=syntaxcomplete#Complete
@@ -104,6 +135,18 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Touche bonus que l'on peut utiliser pour mapper certaines commandes
 let mapleader = ","
 
+
+" --------------------------------
+" KEY MAP
+" --------------------------------
+
+
+au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
+au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
+noremap <silent><buffer> <2-LeftMouse> :call ledger#transaction_state_toggle(line('.'), ' *?!')<CR>
+
+
+
 " Exécuter PerlTidy sur l'actuel buffer (nécessite son installation sur le système)
 map <F7> <Esc>:%!perltidy -i 2<CR>
 
@@ -117,6 +160,41 @@ nnoremap <C-Left>  :tabprevious<CR>
 " Aller à l'onglet précédent
 nnoremap <C-Right>  :tabnext<CR>
 " Fermer l'onglet courant
-nnoremap <C-c> :tabclose<CR>
+nnoremap <C-w> :tabclose<CR>
 " Ouvrir un nouvel onglet
 nnoremap <C-t> :tabnew<CR>
+
+" Toogle sidebar
+nnoremap <C-b> :NERDTreeToggle<CR>
+
+
+
+" --------------------------------
+" PLUGGIN CONFIG
+" --------------------------------
+
+
+" THEME
+
+" Plugin 'altercation/vim-colors-solarized', {'as': 'solarized'}
+" let g:solarized_termcolors=256
+
+" Status line theme
+set background=dark
+colorscheme iceberg
+set laststatus=2
+let g:lightline = {'colorscheme': 'iceberg',}
+set ttimeoutlen=50
+set noshowmode
+set shortmess+=F
+
+
+let g:closetag_filenames = '*.vue'
+
+" ALE
+
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\}

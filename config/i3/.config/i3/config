@@ -30,7 +30,7 @@ focus_follows_mouse yes
 font pango:Monaco 8
 
 # Wallpaper
-set $wallpaper ~/synology/home/Codes/dotfiles/Wallpaper/pepper-carrot-cosy.jpg
+set $wallpaper ~/.dotfiles/Wallpaper/pepper-carrot-rain.jpg
 exec_always --no-startup-id feh --bg-scale $wallpaper
 exec_always --no-startup-id /usr/libexec/gsd-xsettings
 
@@ -85,11 +85,12 @@ assign [class="(Thunderbird|Mattermost|KeePassXC)" window_type="normal"] $ws2
 # Workspace 5 (Chrome)
 assign [class="Google-chrome" window_type="normal"] $ws5
 
+
 ###############################
 #            KEYMAPS          #
 ###############################
 
-include ~/.config/i3/keybinding.conf
+include ~/.config/i3/keybinding-vm.conf
 
 ###############################
 #            STARTUP          #
@@ -97,28 +98,6 @@ include ~/.config/i3/keybinding.conf
 
 # WINDOW MANAGER APPLICATIONS
 exec --no-startup-id compton
-exec --no-startup-id xautolock -time 10 -corners -0-0 -locker '~/.config/i3/i3-lock.sh'
-exec --no-startup-id numlockx on
-exec --no-startup-id indicator-sound-switcher
-exec --no-startup-id synology-drive
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
-# RESTORE WORSPACES
-
-# Workspace 1
-exec i3-msg 'workspace 1'
-exec firefox
-
-# Workspace 2
-exec i3-msg 'workspace 2; append_layout ~/.i3/workspace-2.json'
-exec thunderbird
-exec mattermost-desktop
-exec keepassxc
-
-# Workspace 3
-exec i3-msg 'workspace 3'
-exec code
-
-# Switch back to workspace 1
-exec i3-msg 'workspace 1'

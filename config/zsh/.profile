@@ -10,33 +10,23 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-## Pyenv config -------------------------
-#
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-
-## Sourcing .bashrc ---------------------
+## Sourcing .zshrc ---------------------
 #
 if [ -n "$BASH_VERSION" ]; then
-    if [ -f "$HOME/.bashrc" ]; then
-	     . "$HOME/.bashrc"
-    fi
+  if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+  fi
 fi
 
 ## PATH modification --------------------
 #
 
-## Add user's private bin in path
-##
-
-if [ -d "$HOME/bin" ]; then
-  export PATH="$HOME/bin:$PATH"
-fi
-
 if [ -d "$HOME/.local/bin" ]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
+export PATH=/usr/local/lib/nodejs/node-v14.17.5-linux-x64/bin:$PATH
 
-export PATH="$HOME/.poetry/bin:$PATH"
+# Pyenv config for non-interactive shells
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
