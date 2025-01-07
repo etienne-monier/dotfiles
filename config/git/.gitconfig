@@ -3,7 +3,7 @@
 	email = etienne.monier@protonmail.com
 
 [core]
-	editor = vim +3 +startinsert
+	editor = nvim +3 +startinsert
 	pager = cat
 
 [commit]
