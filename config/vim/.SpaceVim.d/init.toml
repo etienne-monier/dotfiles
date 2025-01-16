@@ -1,0 +1,73 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2023 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg@outlook.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section
+[options]
+    bootstrap_before = 'myspacevim#before'
+    bootstrap_after = 'myspacevim#after'
+    # set spacevim theme. by default colorscheme layer is not loaded,
+    # if you want to use more colorscheme, please load the colorscheme
+    # layer
+    colorscheme = "gruvbox"
+    colorscheme_bg = "dark"
+    # Disable guicolors in basic mode, many terminal do not support 24bit
+    # true colors
+    enable_guicolors = true
+    # Disable statusline separator, if you want to use other value, please
+    # install nerd fonts
+    statusline_separator = "arrow"
+    statusline_iseparator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_mode = false
+    enable_ycm = true
+    autocomplete_method = "ycm"
+    lint_engine = "ale"
+    snippet_engine = "ultisnips"
+
+# Fuzzy-finder layer
+[[layers]]
+name = "fzf"
+
+# Checkers
+[[layers]]
+  name = "checkers"
+
+# Enable autocomplete layer
+[[layers]]
+  name = 'autocomplete'
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "smart"
+
+# git support
+[[layers]]
+  name = "git"
+  git_plugin = 'fugitive'
+
+###### LANGUAGES #########
+
+[[layers]]
+  name = 'lsp'
+  # filetypes = ['python', 'vue', 'typescript', 'javascript']
+#   [layers.override_cmd]
+    # python = ['pyright']  # Installed with npm install -g pyright
+    # vue = ['vue-language-server']  # npm install -g @vue/language-server @vue/typescript-plugin
+    # typescript = ['vue-language-server']
+#     javascript = ['vue-language-server']
+
+[[layers]]
+  name = "lang#python"
+  python_interpreter = "python" 
+  enabled_linters = ['python', 'pylint']
+  format_on_save = true
+
+[[layers]]
+  name = "lang#vue"
+
+
+
