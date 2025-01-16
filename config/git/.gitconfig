@@ -1,6 +1,6 @@
 [user]
 	name = Etienne Monier
-	email = etienne.monier@protonmail.com
+	email = etienne.monier@csgroup.eu
 
 [core]
 	editor = vim +3 +startinsert
@@ -15,6 +15,3 @@
 
 [init]
 	defaultBranch = develop
-
-[includeIf "gitdir/i:~/Codes/"]
-  path = ~/.gitconfig-work

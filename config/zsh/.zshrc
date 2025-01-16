@@ -52,6 +52,7 @@ plugins=(
   z
   zsh-syntax-highlighting
 )
+autoload -U compinit && compinit
 
 # If non-root, add ssh-agent
 if [[ $EUID -ne 0 ]]; then
