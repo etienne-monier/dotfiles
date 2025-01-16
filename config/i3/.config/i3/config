@@ -27,16 +27,7 @@ focus_follows_mouse yes
 ###############################
 
 # Setting font
-<<<<<<< HEAD
 font pango:DejaVuSansMono Nerd Font 8
-=======
-font pango:Monaco 8
-
-# Wallpaper
-set $wallpaper ~/.dotfiles/Wallpaper/pepper-carrot-rain.jpg
-exec_always --no-startup-id feh --bg-scale $wallpaper
-exec_always --no-startup-id /usr/libexec/gsd-xsettings
->>>>>>> develop
 
 # I3 Gaps
 gaps inner 10px
@@ -98,22 +89,10 @@ for_window [window_role="alert"] floating enable
 #            KEYMAPS          #
 ###############################
 
-<<<<<<< HEAD
-include ~/.config/i3/config.d/keybinding-`hostname`.conf
-=======
-include ~/.config/i3/keybinding-vm.conf
->>>>>>> develop
+include ~/.config/i3/config.d/keybinding.`hostname`.conf
 
 ###############################
 #            STARTUP          #
 ###############################
 
-<<<<<<< HEAD
-include ~/.config/i3/config.d/startup.conf
-=======
-# WINDOW MANAGER APPLICATIONS
-exec --no-startup-id compton
-exec --no-startup-id nm-applet
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-
->>>>>>> develop
+include ~/.config/i3/config.d/startup.`hostname`.conf
