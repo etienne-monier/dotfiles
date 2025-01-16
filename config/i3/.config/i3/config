@@ -27,13 +27,7 @@ focus_follows_mouse yes
 ###############################
 
 # Setting font
-font pango:Monaco 8
-
-# Wallpaper
-set $wallpaper ~/synology/home/Codes/dotfiles/Wallpaper/cats-bridge.jpg
-# set $wallpaper ~/synology/home/Codes/dotfiles/Wallpaper/pepper-carrot-cosy.jpg
-exec_always --no-startup-id feh --bg-scale $wallpaper
-exec_always --no-startup-id /usr/libexec/gsd-xsettings
+font pango:DejaVuSansMono Nerd Font 8
 
 # I3 Gaps
 gaps inner 10px
@@ -95,34 +89,10 @@ for_window [window_role="alert"] floating enable
 #            KEYMAPS          #
 ###############################
 
-include ~/.config/i3/keybinding.conf
+include ~/.config/i3/config.d/keybinding-`hostname`.conf
 
 ###############################
 #            STARTUP          #
 ###############################
 
-# WINDOW MANAGER APPLICATIONS
-exec --no-startup-id compton
-exec --no-startup-id xautolock -time 10 -corners -0-0 -locker '~/.config/i3/i3-lock.sh'
-exec --no-startup-id numlockx on
-exec --no-startup-id indicator-sound-switcher
-exec --no-startup-id synology-drive
-exec --no-startup-id nm-applet
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-
-# RESTORE WORSPACES
-
-# Workspace 1
-exec i3-msg 'workspace 1'
-exec firefox
-
-# Workspace 2
-exec thunderbird
-exec keepassxc
-
-# Workspace 3
-exec i3-msg 'workspace 3'
-exec code
-
-# Switch back to workspace 1
-exec i3-msg 'workspace 1'
+include ~/.config/i3/config.d/startup.conf

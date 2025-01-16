@@ -1,6 +1,0 @@
---file ~/ownCloud/Comptes/personal.ledger
---pedantic
---check-payees
---input-date-format %d/%m/%Y
---date-format %d/%m/%Y
-

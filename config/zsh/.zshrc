@@ -18,7 +18,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.zshrc.d/p10k.zsh ]] || source ~/.zshrc.d/p10k.zsh
 
 
 ##
@@ -67,25 +67,22 @@ if [[ $EUID -eq 0 ]]; then
   POWERLEVEL9K_DISABLE_GITSTATUS=true
 fi
 
-# To set ssh agent quiet
-ZSH_SSH_AGENT_QUIET=true
-
 source $ZSH/oh-my-zsh.sh
 source $HOME/.oh-my-zsh/plugins/z/z.sh
 
 
-##
-## SH configuration
-##
+# To set ssh agent quiet
+ZSH_SSH_AGENT_QUIET=true
 
-# You may need to manually set your language environment
-export LANG=fr_FR.UTF-8
+# Load SSH key
+zstyle :omz:plugins:ssh-agent quiet identities id_rsa-cnes
 
-# Color 256
-export TERM='xterm-kitty'
+##
+## SHELL configuration
+##
 
 # History configuration
-HISTSIZE=3000             # Nb Fe lignes en mémoire
+HISTSIZE=3000             # Nb de lignes en mémoire
 HISTFILE=~/.zsh_history   # Fichier de sauvegarde
 SAVEHIST=3000             # Nb d'entrées à enregistrer
 HISTDUP=erase             # Suppression des doublons
@@ -93,11 +90,13 @@ setopt  appendhistory     # Ajout des entrées en mode append
 setopt  sharehistory      # Partage de l'historique entre les terminaux
 setopt  incappendhistory  # Ajout immédiat de l'historique (pas à la fermeture)
 
-##
-## EDITOR
-##
-
+# Language environment
+export LANG=fr_FR.UTF-8
+# Color 256
+export TERM='xterm-kitty'
+# Prefered editor
 export EDITOR=vim
+# Pager (git logs)
 export PAGER=cat
 
 ##
@@ -114,7 +113,6 @@ export PAGER=cat
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias rm='rm --preserve-root'
-
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -124,73 +122,28 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
+alias yt-dl='youtube-dl --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36" --extract-audio --audio-format mp3'
 
+# This function makes pipe accessible.
 function mydu(){
   du -ah --max-depth=1 $1 | sort -h
 }
-
 alias mydu='mydu'
 
 ##
-## GO
+## INCLUDE environment-specific configuration
 ##
 
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH="$HOME/.go-projects"
-export GOBIN="$GOPATH/bin"
+HOSTNAME=$(hostname)
+HOSTFILE="${HOME}/.zshrc.d/host-specific/${HOSTNAME}.sh"
 
-##
-## FZF CONFIG
-##
-if [ -f "$HOME/.fzf.zsh" ]; then
-  source ~/.fzf.zsh
-  export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+if [[ -f "${HOSTFILE}" ]]; then
+  source "${HOSTFILE}"
 fi
 
 ##
-## TEXLIVE (LaTeX)
+## Applications config
 ##
-if [[ -d "$HOME/.texlive/bin/x86_64-linux" ]]; then
-  PATH="$HOME/.texlive/bin/x86_64-linux:$PATH"
-fi
 
-##
-## NVM (Javascript)
-##
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-fi
-
-##
-## KUBECTL (K8S)
-##
-alias k=kubectl
-complete -o default -F __start_kubectl k
-
-##
-## POETRY (PYTHON)
-##
-if [ -d "$HOME/.poetry" ]; then
-  export PATH="$HOME/.poetry/bin:$PATH"
-fi
-
-##
-## PYENV config
-##
-if [[ -d "$HOME/.pyenv" ]]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-# ##
-# ## PYENV (PYTHON)
-# ##
-# if [[ $EUID -ne 0 ]]; then
-
-# fi
-
-export PYTHONBREAKPOINT=ipdb.set_trace
+source "${HOME}/.zshrc.d/app-config.sh"
 

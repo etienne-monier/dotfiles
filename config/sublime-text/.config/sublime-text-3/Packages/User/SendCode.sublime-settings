@@ -1,8 +1,0 @@
-{
-	"prog": "linux-terminal",
-	"python":
-	{
-		"bracketed_paste_mode": true,
-		"prog": "linux-terminal"
-	}
-}
