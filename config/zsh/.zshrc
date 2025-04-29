@@ -20,6 +20,7 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zshrc.d/p10k.zsh ]] || source ~/.zshrc.d/p10k.zsh
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ##
 ## OH MY ZSH config
@@ -51,6 +52,7 @@ plugins=(
   colored-man-pages
   z
   zsh-syntax-highlighting
+  task
 )
 autoload -U compinit && compinit
 
@@ -83,7 +85,7 @@ zstyle :omz:plugins:ssh-agent quiet identities id_rsa-cnes
 ##
 
 # History configuration
-HISTSIZE=3000             # Nb de lignes en mémoire
+HISTSIZE=10000             # Nb de lignes en mémoire
 HISTFILE=~/.zsh_history   # Fichier de sauvegarde
 SAVEHIST=3000             # Nb d'entrées à enregistrer
 HISTDUP=erase             # Suppression des doublons
@@ -148,3 +150,6 @@ fi
 
 source "${HOME}/.zshrc.d/app-config.sh"
 
+export PATH="/home/moniere/.pixi/bin:$PATH"
+
+. "$HOME/snap/code/184/.local/share/../bin/env"
