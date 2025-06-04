@@ -71,3 +71,8 @@ fi
 # Set the python breakpoint to use ipdb
 # (WARNING, this must be installed).
 export PYTHONBREAKPOINT=ipdb.set_trace
+
+##
+## PYENV config
+##
+. "$HOME/.cargo/env"

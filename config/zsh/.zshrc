@@ -76,7 +76,7 @@ source $HOME/.oh-my-zsh/plugins/z/z.sh
 ZSH_SSH_AGENT_QUIET=true
 
 # Load SSH key
-zstyle :omz:plugins:ssh-agent quiet identities id_rsa-cnes
+zstyle :omz:plugins:ssh-agent quiet yes identities id_rsa-cnes
 
 ##
 ## SHELL configuration
