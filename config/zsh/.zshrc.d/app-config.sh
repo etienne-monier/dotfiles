@@ -44,7 +44,8 @@ fi
 ##
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                 # This loads nvm
+  [ -s "$NVM_DIR/zsh_completion" ] && \. "$NVM_DIR/zsh_completion" # This loads nvm zsh_completion
 fi
 
 ##
@@ -57,6 +58,12 @@ complete -o default -F __start_kubectl k
 ## POETRY (PYTHON)
 ##
 addpath "$HOME/.poetry/bin"
+
+##
+## PIXI (PYTHON)
+##
+addpath "$HOME/.pixi/bin"
+eval "$(pixi completion --shell zsh)"
 
 ##
 ## PYENV config
@@ -73,6 +80,6 @@ fi
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 ##
-## PYENV config
+## CARGO config
 ##
 . "$HOME/.cargo/env"

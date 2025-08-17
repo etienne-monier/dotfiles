@@ -1,0 +1,13 @@
+{
+  "border": "normal",
+  "current_border_width": 2,
+  "floating": "auto_off",
+  "fullscreen_mode": 1,
+  "percent": 1,
+  "swallows": [
+    {
+      "title": "^(APP.NAME - Google Chrome|vdi.icc-co3d.space).*$"
+    }
+  ],
+  "type": "con"
+}

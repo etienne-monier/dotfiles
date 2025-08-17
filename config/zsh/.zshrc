@@ -1,8 +1,14 @@
 #!/bin/sh
 
+# To run profiling, run `time ZSH_DEBUGRC=1 zsh -i -c exit`
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zmodload zsh/zprof
+fi
+
 ##
 ## Setup Powerlevel10k
 ##
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -51,6 +57,7 @@ plugins=(
   colored-man-pages
   z
   zsh-syntax-highlighting
+  zsh-fzf-history-search
 )
 autoload -U compinit && compinit
 
@@ -69,7 +76,7 @@ if [[ $EUID -eq 0 ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.oh-my-zsh/plugins/z/z.sh
+source $HOME/.oh-my-zsh/plugins/z/z.plugin.zsh
 
 
 # To set ssh agent quiet
@@ -122,8 +129,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+alias rm-all-docker='docker rm -f $(docker ps -a -q)'
+
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
-alias yt-dl='youtube-dl --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36" --extract-audio --audio-format mp3'
+alias yt-dl='yt-dlp-dl --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36" --extract-audio --audio-format mp3'
 
 # This function makes pipe accessible.
 function mydu(){
@@ -148,3 +157,10 @@ fi
 
 source "${HOME}/.zshrc.d/app-config.sh"
 
+
+unsetopt XTRACE
+exec 2>&3 3>&-
+
+if [[ -n "$ZSH_DEBUGRC" ]]; then
+  zprof
+fi
