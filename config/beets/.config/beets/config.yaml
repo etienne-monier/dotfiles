@@ -1,0 +1,14 @@
+directory: ~/Musique/next
+library: ~/.beets.db
+
+plugins: fetchart embedart lyrics info fromfilename chroma
+
+lyrics:
+  synced: yes
+
+paths:
+  default: $albumartist/$album%aunique{}/$track $title
+  mycompilations:1: MyCompilations/$album%aunique{}/$track $title
+
+chroma:
+  auto: yes
