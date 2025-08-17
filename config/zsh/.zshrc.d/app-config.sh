@@ -82,4 +82,6 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 ##
 ## CARGO config
 ##
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
