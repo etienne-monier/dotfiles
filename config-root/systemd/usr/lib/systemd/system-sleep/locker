@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# cf https://blog.christophersmart.com/2016/05/11/running-scripts-before-and-after-suspend-with-systemd/
+
 if [ "${1}" == "pre" ]; then
   # Do the thing you want before suspend
   echo "Suspending at $(date)..."

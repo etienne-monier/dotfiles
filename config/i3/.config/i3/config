@@ -75,10 +75,14 @@ workspace $ws10 output $monitor
 
 # Workspace 1 (Web)
 assign [class="Firefox" window_type="normal"] $ws1
-# Workspace 2 (Mail|Mattermost)
+# Workspace 2 (Mail)
 assign [class="(Thunderbird|Mattermost|KeePassXC)" window_type="normal"] $ws2
+# Workspace 3 (Code)
+assign [class="Code" window_type="normal"] $ws3
 # Workspace 5 (Chrome)
 assign [class="Google-chrome" window_type="normal"] $ws5
+# Workspace 10 (Obsidian)
+assign [class="obsidian" window_type="normal"] $ws10
 
 # Enable floating mode for all zoom dialogs
 for_window [class="zoom"  window_type="zoom"] floating enable

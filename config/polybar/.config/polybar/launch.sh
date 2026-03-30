@@ -10,7 +10,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 HOSTNAME=$(hostname)
 
 case $HOSTNAME in
-'PO20212LXe') polybar ;;
 *) polybar ;;
 esac
 

@@ -3,31 +3,34 @@
 # Need hwinfo
 # Use sudo apt-get install -y hwinfo
 
-if [ $(hostname) = "woodworker" ]; then
+# Disable the mouse
+xinput disable "DELL09A0:00 0488:1020 Mouse"
 
-  # Internal output
-  INTERNAL_OUTPUT="eDP-1"
+# Internal output
+INTERNAL_OUTPUT="eDP-1"
 
-  # Looks for external screen
-  EXTERNAL_OUTPUT=$(xrandr | grep ' connected ' | grep -v $INTERNAL_OUTPUT | cut -f 1 -d ' ')
+# Internal output
+INTERNAL_OUTPUT="eDP-1"
 
-  #
-  # Handle high-resolution monitor
-  #
-  MONITOR_NAME="IIYAMA PL3480WQ"
-  HIGH_RESOLUTION_MODE="3440x1440_30.00"
+#
+# Handle high-resolution monitor
+#
+# MONITOR_NAME="IIYAMA PL3480WQ"
+# HIGH_RESOLUTION_MODE="3440x1440_30.00"
 
-  # Add high-resolution mode for home computer
-  xrandr --newmode "${HIGH_RESOLUTION_MODE}" 196.90 3440 3600 3960 4480 1440 1441 1444 1465 -HSync +Vsync 2>/dev/null
-  xrandr --addmode HDMI-1 "${HIGH_RESOLUTION_MODE}"
+# Add high-resolution mode for home computer
+# xrandr --newmode "${HIGH_RESOLUTION_MODE}" 196.90 3440 3600 3960 4480 1440 1441 1444 1465 -HSync +Vsync 2>/dev/null
+# xrandr --addmode HDMI-1 "${HIGH_RESOLUTION_MODE}"
 
-  #
-  # Mode option
-  #
-  MODE_OPTION=--auto
-  if [[ -n $(hwinfo --monitor --short 2>/dev/null | grep "${MONITOR_NAME}") ]]; then
-    MODE_OPTION=--mode\ "${HIGH_RESOLUTION_MODE}"
-  fi
+#
+# Mode option
+#
+MODE_OPTION=--auto
+# if [[ -n $(hwinfo --monitor --short 2>/dev/null | grep "${MONITOR_NAME}") ]]; then
+#   MODE_OPTION=--mode\ "${HIGH_RESOLUTION_MODE}"
+# fi
+
+# echo "$MODE_OPTION"
 
   echo "$MODE_OPTION"
 

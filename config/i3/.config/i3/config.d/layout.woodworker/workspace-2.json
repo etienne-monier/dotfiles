@@ -1,37 +1,15 @@
 [
   {
     "border": "normal",
+    "current_border_width": 2,
     "floating": "auto_off",
-    "layout": "splitv",
-    "marks": [],
     "percent": 0.5,
-    "type": "con",
-    "nodes": [
+    "swallows": [
       {
-        "border": "normal",
-        "current_border_width": 2,
-        "floating": "auto_off",
-        "percent": 0.5,
-        "swallows": [
-          {
-            "instance": "^keepassxc$"
-          }
-        ],
-        "type": "con"
-      },
-      {
-        "border": "normal",
-        "current_border_width": 2,
-        "floating": "auto_off",
-        "percent": 0.5,
-        "swallows": [
-          {
-            "instance": "^kitty$"
-          }
-        ],
-        "type": "con"
+        "instance": "^keepassxc$"
       }
-    ]
+    ],
+    "type": "con"
   },
   {
     "border": "normal",
@@ -40,7 +18,7 @@
     "percent": 0.5,
     "swallows": [
       {
-        "class": "^thunderbird-esr$"
+        "class": "^thunderbird_thunderbird$"
       }
     ],
     "type": "con"

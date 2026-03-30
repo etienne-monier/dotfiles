@@ -105,7 +105,7 @@ export LANG=fr_FR.UTF-8
 # Color 256
 export TERM='xterm-kitty'
 # Prefered editor
-export EDITOR=vim
+export EDITOR=nvim
 # Pager (git logs)
 export PAGER=cat
 
@@ -134,7 +134,9 @@ alias egrep='egrep --color=auto'
 alias rm-all-docker='docker rm -f $(docker ps -a -q)'
 
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
-alias yt-dl='yt-dlp-dl --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36" --extract-audio --audio-format mp3'
+alias yt-dl='yt-dlp --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36" --extract-audio --audio-format mp3'
+
+alias todo='/usr/bin/task'
 
 # This function makes pipe accessible.
 function mydu(){
@@ -158,11 +160,3 @@ fi
 ##
 
 source "${HOME}/.zshrc.d/app-config.sh"
-
-
-unsetopt XTRACE
-exec 2>&3 3>&-
-
-if [[ -n "$ZSH_DEBUGRC" ]]; then
-  zprof
-fi

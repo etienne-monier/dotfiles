@@ -7,6 +7,13 @@ addpath() {
   fi
 }
 
+# Add to the end of path in $PATH if exists
+addpath_end() {
+  if [[ -d "$1" ]]; then
+    export PATH="$PATH:$1"
+  fi
+}
+
 ##
 ## NVIM
 ##
@@ -34,7 +41,7 @@ fi
 ##
 ## TEXLIVE (LaTeX)
 ##
-addpath "$HOME/.texlive/bin/x86_64-linux"
+addpath_end "$HOME/.texlive/bin/x86_64-linux"
 if [ -d ~/.texmf ]; then
   export TEXMFHOME=~/.texmf
 fi
@@ -85,3 +92,10 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 if [ -f "$HOME/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
+
+##
+## UV config
+##
+
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
