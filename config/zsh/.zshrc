@@ -136,7 +136,7 @@ alias rm-all-docker='docker rm -f $(docker ps -a -q)'
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 alias yt-dl='yt-dlp --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36" --extract-audio --audio-format mp3'
 
-alias todo='/usr/bin/task'
+alias todo='/usr/bin/taskwarrior'
 
 # This function makes pipe accessible.
 function mydu(){

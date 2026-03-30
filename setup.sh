@@ -14,6 +14,7 @@ base=(
 useronly=(
   'git'
   'i3'
+  'autorandr'
   'compton'
   'polybar'
   'rofi'
