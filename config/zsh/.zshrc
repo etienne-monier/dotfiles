@@ -138,6 +138,38 @@ alias yt-dl='yt-dlp --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) A
 
 alias todo='/usr/bin/taskwarrior'
 
+# Get latest container ID
+alias dl="docker ps -l -q"
+# Get container process
+alias dps="docker ps"
+# Get process included stop container
+alias dpa="docker ps -a"
+# Get images
+alias di="docker images"
+# Get container IP
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+# Run daemonized container
+alias dkd="docker run -d -P"
+# Run interactive container
+alias dki="docker run -i -t -P"
+# Execute interactive container
+alias dex="docker exec -i -t"
+# Stop all containers
+alias dstop='docker stop $(docker ps -a -q)'
+# Remove all containers
+alias drm='docker rm $(docker ps -a -q)'
+# Stop and Remove all containers
+alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+# Remove all images
+alias dri='docker rmi $(docker images -q)'
+# Dockerfile build
+alias dbu='docker build -t=$1 .'
+# Show all alias related docker
+dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 \t \2/" | sed "s/['|\']//g" | sort; }
+# Bash into running container
+alias dbash='docker exec -it $(docker ps -aqf "name=$1") bash'
+
+
 # This function makes pipe accessible.
 function mydu(){
   du -ah --max-depth=1 $1 | sort -h

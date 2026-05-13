@@ -9,39 +9,12 @@ xinput disable "DELL09A0:00 0488:1020 Mouse"
 # Internal output
 INTERNAL_OUTPUT="eDP-1"
 
-# Internal output
-INTERNAL_OUTPUT="eDP-1"
-
 #
-# Handle high-resolution monitor
+# At startup, the external monitor is chosen if connected.
+# If not connected, the internal monitor is chosen
 #
-# MONITOR_NAME="IIYAMA PL3480WQ"
-# HIGH_RESOLUTION_MODE="3440x1440_30.00"
-
-# Add high-resolution mode for home computer
-# xrandr --newmode "${HIGH_RESOLUTION_MODE}" 196.90 3440 3600 3960 4480 1440 1441 1444 1465 -HSync +Vsync 2>/dev/null
-# xrandr --addmode HDMI-1 "${HIGH_RESOLUTION_MODE}"
-
-#
-# Mode option
-#
-MODE_OPTION=--auto
-# if [[ -n $(hwinfo --monitor --short 2>/dev/null | grep "${MONITOR_NAME}") ]]; then
-#   MODE_OPTION=--mode\ "${HIGH_RESOLUTION_MODE}"
-# fi
-
-# echo "$MODE_OPTION"
-
-  echo "$MODE_OPTION"
-
-  #
-  # At startup, the external monitor is chosen if connected.
-  # If not connected, the internal monitor is chosen
-  #
-  if [ -z "$EXTERNAL_OUTPUT" ]; then
-    xrandr --output $INTERNAL_OUTPUT --auto --primary
-  else
-    xrandr --output $EXTERNAL_OUTPUT $MODE_OPTION --primary --output $INTERNAL_OUTPUT --off
-  fi
-
+if [ -z "$EXTERNAL_OUTPUT" ]; then
+  xrandr --output $INTERNAL_OUTPUT --auto --primary
+else
+  xrandr --output $EXTERNAL_OUTPUT --auto --primary --output $INTERNAL_OUTPUT --off
 fi

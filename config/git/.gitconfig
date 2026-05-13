@@ -1,9 +1,9 @@
 [user]
 	name = Etienne Monier
-	email = etienne.monier@csgroup.eu
+	email = etienne.monier@cs-soprasteria.com
 
 [core]
-	editor = nvim +3 +startinsert
+	editor = hx +3
 	pager = cat
 
 [commit]

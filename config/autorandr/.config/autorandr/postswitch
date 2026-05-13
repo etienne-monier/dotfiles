@@ -25,6 +25,20 @@ case "$PROFILE" in
     done
     ;;
 
+  salle-geodes)
+    MONITOR=DP-1-1
+    for i in $(seq 1 2 10)
+    do
+        i3-msg "[workspace=$i] move workspace to output ${MONITOR}"
+    done
+
+    MONITOR=DP-1-2
+    for i in $(seq 2 2 10)
+    do
+        i3-msg "[workspace=$i] move workspace to output ${MONITOR}"
+    done
+    ;;
+
 #   cs-three-screens)
 #     i3-msg "workspace 1; move workspace to output eDP-1"
 #     i3-msg "workspace 2; move workspace to output HDMI-1"

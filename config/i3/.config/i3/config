@@ -63,16 +63,16 @@ set $monitor eDP-1
 set $leftMonitor DP-1-3
 set $rightMonitor DP-1-1
 
-workspace $ws1 output $monitor $leftMonitor
-workspace $ws2 output $monitor $rightMonitor
-workspace $ws3 output $monitor $leftMonitor
-workspace $ws4 output $monitor $rightMonitor
-workspace $ws5 output $monitor $leftMonitor
-workspace $ws6 output $monitor $rightMonitor
-workspace $ws7 output $monitor $leftMonitor
-workspace $ws8 output $monitor $rightMonitor
-workspace $ws9 output $monitor $leftMonitor
-workspace $ws10 output $monitor $rightMonitor
+workspace $ws1 output primary
+workspace $ws2 output DP-1-2 DP-1-3 primary
+workspace $ws3 output primary
+workspace $ws4 output DP-1-2 DP-1-3 primary
+workspace $ws5 output primary
+workspace $ws6 output DP-1-2 DP-1-3 primary
+workspace $ws7 output primary
+workspace $ws8 output DP-1-2 DP-1-3 primary
+workspace $ws9 output primary
+workspace $ws10 output DP-1-2 DP-1-3 primary
 
 # FORCE WORSPACES FOR SOME APPLICATIONS (use xprop | grep WM_CLASS)
 
