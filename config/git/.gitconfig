@@ -1,6 +1,6 @@
 [user]
 	name = Etienne Monier
-	email = etienne.monier@cs-soprasteria.com
+	email = etienne.monier@csgroup.eu
 
 [core]
 	editor = hx +3
@@ -14,4 +14,4 @@
     stl = git stash list --pretty=format:"%C(red)%h%C(reset) - %C(dim yellow)(%C(bold magenta)%gd%C(dim yellow))%C(reset) %<(70,trunc)%s %C(green)(%cr) %C(bold blue)<%an>%C(reset)"
 
 [init]
-	defaultBranch = develop
+	defaultBranch = main

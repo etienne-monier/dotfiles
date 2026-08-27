@@ -105,7 +105,7 @@ export LANG=fr_FR.UTF-8
 # Color 256
 export TERM='xterm-kitty'
 # Prefered editor
-export EDITOR=nvim
+export EDITOR=hx
 # Pager (git logs)
 export PAGER=cat
 
@@ -137,6 +137,8 @@ alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 alias yt-dl='yt-dlp --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36" --extract-audio --audio-format mp3'
 
 alias todo='/usr/bin/taskwarrior'
+alias tk='/usr/local/bin/task'
+alias fd='fdfind'
 
 # Get latest container ID
 alias dl="docker ps -l -q"
@@ -192,3 +194,6 @@ fi
 ##
 
 source "${HOME}/.zshrc.d/app-config.sh"
+
+# opencode
+export PATH=/home/etienne/.opencode/bin:$PATH
