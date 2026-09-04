@@ -26,8 +26,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zshrc.d/p10k.zsh ]] || source ~/.zshrc.d/p10k.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 ##
 ## OH MY ZSH config
 ##
@@ -51,14 +49,12 @@ RM_STAR_SILENT=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  pyenv
   git
   zsh-autosuggestions
   zsh-completions
   colored-man-pages
   z
   zsh-syntax-highlighting
-  task
   zsh-fzf-history-search
 )
 autoload -U compinit && compinit
@@ -77,15 +73,12 @@ if [[ $EUID -eq 0 ]]; then
   POWERLEVEL9K_DISABLE_GITSTATUS=true
 fi
 
+# ssh-agent zstyle config must be set BEFORE oh-my-zsh.sh is sourced, since
+# the ssh-agent plugin reads it while loading (during the source below).
+zstyle :omz:plugins:ssh-agent quiet yes identities id_rsa-cnes
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/.oh-my-zsh/plugins/z/z.plugin.zsh
-
-
-# To set ssh agent quiet
-ZSH_SSH_AGENT_QUIET=true
-
-# Load SSH key
-zstyle :omz:plugins:ssh-agent quiet yes identities id_rsa-cnes
 
 ##
 ## SHELL configuration
@@ -137,8 +130,11 @@ alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 alias yt-dl='yt-dlp --verbose --user-agent "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.6533.103 Mobile Safari/537.36" --extract-audio --audio-format mp3'
 
 alias todo='/usr/bin/taskwarrior'
-alias tk='/usr/local/bin/task'
+alias tk='task'
+alias gt='gotask'
 alias fd='fdfind'
+
+alias echopath='echo $PATH | sed "s/:/\n/g"'
 
 # Get latest container ID
 alias dl="docker ps -l -q"
@@ -197,3 +193,10 @@ source "${HOME}/.zshrc.d/app-config.sh"
 
 # opencode
 export PATH=/home/etienne/.opencode/bin:$PATH
+
+# fnm
+FNM_PATH="/home/etienne/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell zsh)"
+fi

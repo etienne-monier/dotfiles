@@ -13,32 +13,26 @@
 ## Sourcing .zshrc ---------------------
 #
 if [ -n "$BASH_VERSION" ]; then
-  if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
-  fi
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
 fi
 
 ## PATH modification --------------------
 #
 
 addpath() {
-  if [ -d "$1" ]; then
-    export PATH="$PATH:$1"
-  fi
+    if [ -d "$1" ]; then
+        export PATH="$1:$PATH"
+    fi
 }
 
 addpath "$HOME/bin"
 addpath "$HOME/.local/bin"
 addpath "$HOME/.mybin"
 
-## Pyenv config -------------------------
-#
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
 ## Cargo config -------------------------
 #
 if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
+    . "$HOME/.cargo/env"
 fi

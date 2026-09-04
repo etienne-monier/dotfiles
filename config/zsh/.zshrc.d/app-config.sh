@@ -2,31 +2,52 @@
 
 # Add path in $PATH if exists
 addpath() {
-  if [[ -d "$1" ]]; then
-    export PATH="$1:$PATH"
-  fi
+    if [[ -d "$1" ]]; then
+        export PATH="$1:$PATH"
+    fi
 }
 
 # Add to the end of path in $PATH if exists
 addpath_end() {
-  if [[ -d "$1" ]]; then
-    export PATH="$PATH:$1"
-  fi
+    if [[ -d "$1" ]]; then
+        export PATH="$PATH:$1"
+    fi
 }
 
 ##
-## NVIM
+## UV config
 ##
-addpath "/opt/nvim/bin"
+# Completions are lazy-loaded from ~/.oh-my-zsh/custom/completions/_uv and _uvx
+# (regenerate with: uv generate-shell-completion zsh > ~/.oh-my-zsh/custom/completions/_uv
+#                    uvx --generate-shell-completion zsh > ~/.oh-my-zsh/custom/completions/_uvx)
+
+##
+## PIXI (PYTHON)
+##
+addpath "$HOME/.pixi/bin"
+# Completion is lazy-loaded from ~/.oh-my-zsh/custom/completions/_pixi
+# (regenerate with: pixi completion --shell zsh > ~/.oh-my-zsh/custom/completions/_pixi)
+
+# Set the python breakpoint to use ipdb
+# (WARNING, this must be installed).
+export PYTHONBREAKPOINT=ipdb.set_trace
 
 ##
 ## GO
 ##
 go_path="/usr/local/go/bin"
 if [[ -d "$go_path" ]]; then
-  addpath "$go_path"
-  export GOPATH="$HOME/.go-projects"
-  export GOBIN="$GOPATH/bin"
+    addpath "$go_path"
+    export GOPATH="$HOME/.go-projects"
+    export GOBIN="$GOPATH/bin"
+    addpath "$GOBIN"
+fi
+
+##
+## CARGO config
+##
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
 fi
 
 ##
@@ -34,8 +55,8 @@ fi
 ##
 fzf_sh="$HOME/.fzf.zsh"
 if [ -f "$fzf_sh" ]; then
-  source "$fzf_sh"
-  export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+    source "$fzf_sh"
+    export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 fi
 
 ##
@@ -43,59 +64,20 @@ fi
 ##
 addpath_end "$HOME/.texlive/bin/x86_64-linux"
 if [ -d ~/.texmf ]; then
-  export TEXMFHOME=~/.texmf
+    export TEXMFHOME=~/.texmf
 fi
 
 ##
-## NVM (Javascript)
+## FNM (Javascript)
 ##
-if [ -d "$HOME/.nvm" ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                 # This loads nvm
-  [ -s "$NVM_DIR/zsh_completion" ] && \. "$NVM_DIR/zsh_completion" # This loads nvm zsh_completion
+FNM_PATH="/home/etienne/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+    export PATH="$FNM_PATH:$PATH"
+    eval "$(fnm env --shell zsh --use-on-cd)"
 fi
 
 ##
 ## KUBECTL (K8S)
 ##
 alias k=kubectl
-complete -o default -F __start_kubectl k
-
-##
-## POETRY (PYTHON)
-##
-addpath "$HOME/.poetry/bin"
-
-##
-## PIXI (PYTHON)
-##
-addpath "$HOME/.pixi/bin"
-eval "$(pixi completion --shell zsh)"
-
-##
-## PYENV config
-##
-if [[ -d "$HOME/.pyenv" ]]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  addpath "$PYENV_ROOT/bin"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-# Set the python breakpoint to use ipdb
-# (WARNING, this must be installed).
-export PYTHONBREAKPOINT=ipdb.set_trace
-
-##
-## CARGO config
-##
-if [ -f "$HOME/.cargo/env" ]; then
-  . "$HOME/.cargo/env"
-fi
-
-##
-## UV config
-##
-
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
+compdef k=kubectl
